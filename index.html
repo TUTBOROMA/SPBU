@@ -16,7 +16,7 @@
       background: #f4f4f4;
       color: #333;
       scroll-behavior: smooth;
-      padding-top: 90px; /* Отступ, чтобы контент не скрывался за фиксированной шапкой */
+      padding-top: 90px; /* Отступ для фиксированной шапки */
     }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -36,15 +36,13 @@
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
-      overflow: hidden;
       position: relative;
     }
     header .logo {
-      float: left;
       font-size: 28px;
       font-weight: 700;
     }
-    /* Кнопка для мобильного меню – три точки (вертикальные) */
+    /* Кнопка для мобильного меню – три точки */
     .menu-toggle {
       display: none;
       background: none;
@@ -52,7 +50,9 @@
       color: #fff;
       font-size: 28px;
       cursor: pointer;
-      float: right;
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
     nav {
       float: right;
@@ -75,13 +75,13 @@
       .menu-toggle {
         display: block;
       }
-      /* По умолчанию навигация скрыта на мобильных устройствах */
+      /* Скрываем обычное меню на мобильных устройствах */
       nav {
         display: none;
         background: rgba(44, 62, 80, 0.95);
         position: absolute;
-        top: 70px; /* ниже логотипа */
-        right: 0;
+        top: 70px;
+        left: 0;
         width: 100%;
         text-align: center;
         padding: 20px 0;
@@ -93,9 +93,14 @@
         display: block;
         margin: 10px 0;
       }
+      /* Корректировка размеров заголовков и текста в Hero для мобильных */
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      .hero-content p {
+        font-size: 18px;
+      }
     }
-    
-    /* Остальные стили (без изменений) */
     
     /* Hero Section */
     #hero {
@@ -181,7 +186,7 @@
       padding: 20px;
       min-width: 300px;
     }
-    /* Отступ для текста в секции "Обо мне" чтобы не накладывался на изображение */
+    /* Отступ для текста в секции "Обо мне" */
     #about .section-content .text {
       margin-left: 449px;
     }
@@ -263,7 +268,7 @@
       font-style: italic;
     }
     
-    /* Галерея – множество изображений Петербурга */
+    /* Галерея – изображения Петербурга */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -278,7 +283,7 @@
     }
     .gallery-grid img:hover { transform: scale(1.05); }
     
-    /* Навыки – расширенный перечень */
+    /* Навыки – перечень */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -357,7 +362,7 @@
   <header>
     <div class="container">
       <div class="logo">Продан Илья Олегович</div>
-      <!-- Кнопка (три точки) для открытия мобильного меню -->
+      <!-- Кнопка для открытия мобильного меню (три точки) -->
       <button class="menu-toggle" id="menuToggle">
         <i class="fas fa-ellipsis-v"></i>
       </button>
@@ -372,17 +377,16 @@
           <li><a href="#contact" class="nav-link">Контакты</a></li>
         </ul>
       </nav>
-      <div style="clear: both;"></div>
     </div>
   </header>
   
   <!-- Скрипты для мобильного меню -->
   <script>
-    // Переключение меню при клике на кнопку
+    // Переключение отображения меню по клику на кнопку
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('navMenu').classList.toggle('active');
     });
-    // При клике по любой ссылке в меню – закрываем его
+    // Закрываем меню при выборе любого пункта
     var navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(function(link) {
       link.addEventListener('click', function() {
@@ -396,7 +400,7 @@
     <div class="hero-content">
       <h1>Добро пожаловать!</h1>
       <p>Я реализую проекты любой сложности с учетом современных требований и индивидуальным подходом к каждому заказчику.</p>
-      <!-- Плавный переход по клику. Если сайт поддерживает smooth scroll, переход будет плавным -->
+      <!-- При клике осуществляется переход на страницу с плавной прокруткой -->
       <a href="https://tutboroma.github.io/SPBU/#about">Узнать обо мне</a>
     </div>
   </section>
