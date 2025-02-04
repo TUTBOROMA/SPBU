@@ -380,7 +380,7 @@
       }
     }
     
-    /* Стили для всплывающего виджета опроса в правом нижнем углу */
+    /* Стили для всплывающего виджета опроса (справа внизу) */
     #surveyWidget {
       position: fixed;
       bottom: 20px;
@@ -434,6 +434,31 @@
       font-size: 18px;
       color: #666;
     }
+    /* Стили для начального блока виджета */
+    #widgetIntro {
+      text-align: center;
+    }
+    #widgetIntro p {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    #widgetIntro button {
+      background: #18bc9c;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #widgetIntro button:hover {
+      background: #159f7a;
+    }
+    /* Скрываем форму до старта опроса */
+    #widgetForm {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -483,7 +508,7 @@
   <section id="hero">
     <div class="hero-content">
       <h1>Добро пожаловать!</h1>
-      <p>Я реализую проекты любой сложности с учетом современных требований и индивидуальным подходом к каждому заказчику.</p>
+      <p>Я реализую проекты любой сложности с учётом современных требований и индивидуальным подходом к каждому заказчику.</p>
       <a href="#about">Узнать обо мне</a>
     </div>
   </section>
@@ -516,20 +541,20 @@
         <p>
           Студент 3 курса Политехнического университета Санкт-Петербурга по специальности "Математика и компьютерные науки". Победитель заключительного этапа ВСОШ по информатике (2022, Краснодарский край).
           Разработал алгоритм оптимизации логистических маршрутов с использованием методов теории графов. 
-          Сочетаю академические знания с практикой: участвую в разработке IT-решений для городских проектов Санкт-Петербурга и частных фирм (Росстандарт).
+          Сочетаю академические знания с практикой: участвую в разработке IT‑решений для городских проектов Санкт-Петербурга и частных фирм (Росстандарт).
         </p>
         <p>
           Ключевые достижения:
         </p>
         <ul>
           <li>• Система анализа транспортных потоков для "Цифрового Петербурга" (Python, OpenCV, нейросетевые модели)</li>
-          <li>• Прототип блокчейн-платформы для отслеживания медоборудования (Hyperledger, Node.js)</li>
-          <li>• Оптимизация алгоритмов обработки IoT-данных с частотой 10k запросов/сек (Apache Kafka, Rust)</li>
-          <li>• Являюсь тим-лидом в проекте с 500 разработчиками в компании "Т-Банк"</li>
+          <li>• Прототип блокчейн‑платформы для отслеживания медоборудования (Hyperledger, Node.js)</li>
+          <li>• Оптимизация алгоритмов обработки IoT‑данных с частотой 10k запросов/сек (Apache Kafka, Rust)</li>
+          <li>• Являюсь тим‑лидом в проекте с 500 разработчиками в компании "Т‑Банк"</li>
         </ul>
         <p>
           Технический стек: Python/C++/Rust, Machine Learning, распределённые системы. 
-          Сертифицированный AWS-архитектор. Активно участвую в хакатонах и open-source проектах, 
+          Сертифицированный AWS‑архитектор. Активно участвую в хакатонах и open‑source проектах, 
           специализируюсь на задачах анализа больших данных и алгоритмической оптимизации. В совершенстве разбираюсь в физических процессах, готов выполнять сложные мультиграфические задачи.
         </p>
       </div>
@@ -738,37 +763,58 @@ import random
   <!-- Всплывающий виджет опроса (справа внизу) -->
   <div id="surveyWidget">
     <span class="close-widget" id="widgetClose">&times;</span>
-    <h3>Какой бот вам нужен?</h3>
-    <form id="surveyFormWidget">
-      <label>1. Для чего нужен бот?</label>
-      <select name="purpose" required>
-        <option value="">Выберите вариант</option>
-        <option value="поддержка">Поддержка клиентов</option>
-        <option value="продажи">Продажи</option>
-        <option value="маркетинг">Маркетинг</option>
-      </select>
-      <label>2. В каком мессенджере использовать бота?</label>
-      <select name="platform" required>
-        <option value="">Выберите вариант</option>
-        <option value="whatsapp">WhatsApp</option>
-        <option value="telegram">Telegram</option>
-        <option value="vk">VK</option>
-      </select>
-      <label>3. Требуется ли интеграция с CRM?</label>
-      <select name="crm" required>
-        <option value="">Выберите вариант</option>
-        <option value="да">Да</option>
-        <option value="нет">Нет</option>
-      </select>
-      <label>4. Дополнительные пожелания:</label>
-      <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
-      <button type="submit">Отправить</button>
-    </form>
+    <!-- Начальный блок с приглашением -->
+    <div id="widgetIntro">
+      <p>Не хотите лучше понять, какой Telegram‑бот вам нужен?</p>
+      <button id="startSurvey">Начать опрос</button>
+    </div>
+    <!-- Блок с формой опроса (скрыт до нажатия кнопки) -->
+    <div id="widgetForm">
+      <h3>Ответьте на вопросы</h3>
+      <form id="surveyFormWidget">
+        <label>1. Какую функциональность вы ожидаете от бота?</label>
+        <select name="purpose" required>
+          <option value="">Выберите вариант</option>
+          <option value="обработка запросов">Обработка запросов пользователей</option>
+          <option value="рассылки">Рассылки и уведомления</option>
+          <option value="интеграция">Интеграция с внешними сервисами</option>
+        </select>
+        <label>2. Какой объем интеграций вам необходим?</label>
+        <select name="integration" required>
+          <option value="">Выберите вариант</option>
+          <option value="базовый">Базовый (контактная форма, уведомления)</option>
+          <option value="средний">Средний (интеграция с CRM, платежные системы)</option>
+          <option value="расширенный">Расширенный (полная автоматизация бизнес-процессов)</option>
+        </select>
+        <label>3. Какой бюджет проекта?</label>
+        <select name="budget" required>
+          <option value="">Выберите вариант</option>
+          <option value="эконом">Эконом</option>
+          <option value="стандарт">Стандарт</option>
+          <option value="премиум">Премиум</option>
+        </select>
+        <label>4. Дополнительные пожелания:</label>
+        <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
   </div>
   
-  <!-- Скрипт для виджета опроса -->
+  <!-- Скрипт для виджета опроса и сбора доп. информации -->
   <script>
-    // Функция показа виджета через 2 секунды после загрузки
+    // Глобальные переменные для информации об IP и регионе
+    var userIP = "неизвестен", userRegion = "неизвестен";
+    
+    // Попытка получить IP и регион через бесплатное API
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        userIP = data.ip || "неизвестен";
+        userRegion = data.region || "неизвестен";
+      })
+      .catch(err => { console.log("Ошибка получения IP/региона:", err); });
+    
+    // Показываем виджет через 2 секунды после загрузки
     window.addEventListener('load', function() {
       setTimeout(function() {
         document.getElementById('surveyWidget').style.display = 'block';
@@ -780,22 +826,37 @@ import random
       document.getElementById('surveyWidget').style.display = 'none';
     });
     
+    // Переход от приветственного блока к форме опроса
+    document.getElementById('startSurvey').addEventListener('click', function() {
+      document.getElementById('widgetIntro').style.display = 'none';
+      document.getElementById('widgetForm').style.display = 'block';
+    });
+    
     // Обработка отправки формы виджета
     document.getElementById('surveyFormWidget').addEventListener('submit', function(e) {
       e.preventDefault();
       
       // Сбор данных формы
       var purpose = this.elements['purpose'].value;
-      var platform = this.elements['platform'].value;
-      var crm = this.elements['crm'].value;
+      var integration = this.elements['integration'].value;
+      var budget = this.elements['budget'].value;
       var notes = this.elements['notes'].value.trim();
       
+      // Дополнительная информация: дата/время, браузер
+      var userDateTime = new Date().toString();
+      var userBrowser = navigator.userAgent;
+      
       // Формирование сообщения
-      var message = "Новый запрос по боту:\n";
-      message += "1. Для чего нужен бот: " + purpose + "\n";
-      message += "2. Мессенджер: " + platform + "\n";
-      message += "3. Интеграция с CRM: " + crm + "\n";
-      message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n";
+      var message = "Новый запрос по Telegram‑боту:\n";
+      message += "1. Функциональность: " + purpose + "\n";
+      message += "2. Объем интеграций: " + integration + "\n";
+      message += "3. Бюджет: " + budget + "\n";
+      message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
+      message += "Доп. информация для улучшения качества обслуживания:\n";
+      message += "IP: " + userIP + "\n";
+      message += "Регион: " + userRegion + "\n";
+      message += "Дата и время: " + userDateTime + "\n";
+      message += "Браузер: " + userBrowser + "\n";
       
       // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
       var phoneNumber = "79819846577";
