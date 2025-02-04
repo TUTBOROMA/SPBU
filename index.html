@@ -178,7 +178,7 @@
     }
     #about .bio p { margin-bottom: 25px; }
     
-    /* Раздел "Биография" */
+    /* Раздел "Особенности ботов" */
     #biography {
       background: #fff;
       padding: 60px 0;
@@ -195,7 +195,7 @@
     }
     #biography .bio-content p { margin-bottom: 25px; }
     
-    /* Projects Section */
+    /* Проектная секция */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -240,21 +240,6 @@
       text-align: center;
       font-style: italic;
     }
-    
-    /* Галерея */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 15px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid img:hover { transform: scale(1.05); }
     
     /* Навыки */
     .skills-grid {
@@ -473,9 +458,8 @@
         <ul>
           <li><a href="#hero" class="nav-link">Главная</a></li>
           <li><a href="#about" class="nav-link">Обо мне</a></li>
-          <li><a href="#biography" class="nav-link">Биография</a></li>
+          <li><a href="#biography" class="nav-link">Особенности ботов</a></li>
           <li><a href="#projects" class="nav-link">Проекты</a></li>
-          <li><a href="#gallery" class="nav-link">Галерея</a></li>
           <li><a href="#skills" class="nav-link">Навыки</a></li>
           <li><a href="#contact" class="nav-link">Контакты</a></li>
         </ul>
@@ -514,360 +498,276 @@
   </section>
   
   <!-- Раздел "Обо мне" -->
-  <section id="about">
-    <div class="container section-content">
-      <div class="image">
-        <img alt="Портрет" loading="lazy" src="images/photo-1504384308090-c894fdcc538d" style="width:100%; max-width:560px;">
-      </div>
-      <div class="text">
-        <h2>Обо мне</h2>
-        <div class="bio">
-          <p>
-            Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям.
-          </p>
-          <p>
-            Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика.
-          </p>
-        </div>
-      </div>
+<section id="about">
+  <div class="container section-content">
+    <div class="image">
+      <img alt="Портрет" loading="lazy" src="images/photo-1504384308090-c894fdcc538d" style="width:100%; max-width:560px;">
     </div>
-  </section>
-  
-  <!-- Раздел "Биография" -->
-  <section id="biography">
-    <div class="container">
-      <h2>Профессиональный путь</h2>
-      <div class="bio-content">
+    <div class="text">
+      <h2>Обо мне</h2>
+      <div class="bio">
         <p>
-          Студент 3 курса Политехнического университета Санкт-Петербурга по специальности "Математика и компьютерные науки". Победитель заключительного этапа ВСОШ по информатике (2022, Краснодарский край).
-          Разработал алгоритм оптимизации логистических маршрутов с использованием методов теории графов. 
-          Сочетаю академические знания с практикой: участвую в разработке IT‑решений для городских проектов Санкт-Петербурга и частных фирм (Росстандарт).
+          Меня зовут Илья Олегович. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям.
         </p>
         <p>
-          Ключевые достижения:
-        </p>
-        <ul>
-          <li>• Система анализа транспортных потоков для "Цифрового Петербурга" (Python, OpenCV, нейросетевые модели)</li>
-          <li>• Прототип блокчейн‑платформы для отслеживания медоборудования (Hyperledger, Node.js)</li>
-          <li>• Оптимизация алгоритмов обработки IoT‑данных с частотой 10k запросов/сек (Apache Kafka, Rust)</li>
-          <li>• Являюсь тим‑лидом в проекте с 500 разработчиками в компании "Т‑Банк"</li>
-        </ul>
-        <p>
-          Технический стек: Python/C++/Rust, Machine Learning, распределённые системы. 
-          Сертифицированный AWS‑архитектор. Активно участвую в хакатонах и open‑source проектах, 
-          специализируюсь на задачах анализа больших данных и алгоритмической оптимизации. В совершенстве разбираюсь в физических процессах, готов выполнять сложные мультиграфические задачи.
+          Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика.
         </p>
       </div>
     </div>
-  </section>
-  
-  <!-- Раздел "Проекты" -->
-  <section id="projects">
-    <div class="container">
-      <h2>Проекты</h2>
-      <div class="projects-grid">
-        <!-- Проект 1: MEMORY TEST -->
-        <div class="project-card">
-          <img alt="Memory Test" loading="lazy" src="images/photo-1518770660439-4636190af475.png">
-          <div class="project-content">
-            <h3>MEMORY TEST</h3>
-            <p>Интерактивное приложение на Python с использованием Pygame для тренировки памяти. Включает несколько режимов и оригинальный интерфейс.</p>
-            <div class="code-block">
-              <pre># Пример кода проекта MEMORY TEST
+  </div>
+</section>
+
+<!-- Раздел "Особенности ботов" -->
+<section id="biography">
+  <div class="container">
+    <h2>Особенности Telegram-ботов</h2>
+    <div class="bio-content">
+      <p>
+        Telegram-боты имеют широкие возможности для бизнеса и клиентов. Они позволяют автоматизировать коммуникацию с пользователями, запускать рассылки, проводить опросы и предоставлять поддержку. Боты могут быть настроены для работы с различными API, такими как CRM-системы или платежные платформы. Интеграция с Telegram позволяет быстро обмениваться сообщениями, а также использовать такие функции, как обработка запросов и уведомления. Эти боты помогают сэкономить время и усилия на обработке запросов, обеспечивая быструю реакцию и улучшая взаимодействие с клиентами.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Раздел "Проекты" -->
+<section id="projects">
+  <div class="container">
+    <h2>Проекты</h2>
+    <div class="projects-grid">
+      <!-- Проект 1: MEMORY TEST -->
+      <div class="project-card">
+        <img alt="Memory Test" loading="lazy" src="images/photo-1518770660439-4636190af475.png">
+        <div class="project-content">
+          <h3>MEMORY TEST</h3>
+          <p>Интерактивное приложение на Python с использованием Pygame для тренировки памяти. Включает несколько режимов и оригинальный интерфейс.</p>
+          <div class="code-block">
+            <pre># Пример кода проекта MEMORY TEST
 import pygame
 import random
 # Инициализация экрана и логика теста</pre>
-            </div>
-            <p>Полный код – на <a href="https://github.com/TUTBOROMA" style="color: #18bc9c;" target="_blank">GitHub</a>.</p>
           </div>
+          <p>Полный код – на <a href="https://github.com/TUTBOROMA" style="color: #18bc9c;" target="_blank">GitHub</a>.</p>
         </div>
-        <!-- Проект 2: ТГ боты для 40REF -->
-        <div class="project-card">
-          <img alt="Telegram Bots" loading="lazy" src="images/photo-1511367461989-f85a21fda167.png">
-          <div class="project-content">
-            <h3>ТГ боты для 40REF</h3>
-            <p>Комплексное решение для автоматизации бизнес-процессов в Telegram. Боты объединены в единую систему для оптимизации рабочих процессов.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 3: SyncFiles -->
-        <div class="project-card">
-          <img alt="SyncFiles" loading="lazy" src="images/photo-1581092795361-8aa453ecb09b.png">
-          <div class="project-content">
-            <h3>SyncFiles</h3>
-            <p>Приложение для автоматической синхронизации файлов между локальной папкой и облачным хранилищем Яндекс Диск. Фронтенд на React, бэкенд на Python (Flask).</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 4: Финансовый трекер -->
-        <div class="project-card">
-          <img alt="Финансовый трекер" loading="lazy" src="images/photo-1542744173-8e7e53415bb0.png">
-          <div class="project-content">
-            <h3>Финансовый трекер</h3>
-            <p>Приложение для прогнозирования и управления финансами с использованием алгоритмов машинного обучения и интеграцией с внешними сервисами.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 5: Корпоративная система управления данными -->
-        <div class="project-card">
-          <img alt="Система управления данными" loading="lazy" src="images/photo-1532614338840-5c77b6d6c7a5.png">
-          <div class="project-content">
-            <h3>Корпоративная система управления данными</h3>
-            <p>Платформа для обработки, анализа и визуализации больших данных с модулем предиктивной аналитики и интеграцией с различными источниками информации.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 6: IoT-решения для умного дома -->
-        <div class="project-card">
-          <img alt="Умный дом" loading="lazy" src="images/photo-1560518883-ce09059eeffa.jpeg">
-          <div class="project-content">
-            <h3>IoT-решения для умного дома</h3>
-            <p>Система для дистанционного управления бытовой техникой и устройствами умного дома с мониторингом энергопотребления и обеспечения безопасности.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 7: Интеграционная платформа B2B -->
-        <div class="project-card">
-          <img alt="Интеграционная платформа" loading="lazy" src="images/photo-1498050108023-c5249f4df085.png">
-          <div class="project-content">
-            <h3>Интеграционная платформа B2B</h3>
-            <p>Система для объединения корпоративных информационных ресурсов с автоматизированным обменом данными, высокой безопасностью и масштабируемостью процессов.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Дополнительный проект 8: Система умного города -->
-        <div class="project-card">
-          <img alt="Умный город" loading="lazy" src="images/photo-1504384308090-c894fdcc538d">
-          <div class="project-content">
-            <h3>Система умного города</h3>
-            <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей с использованием облачных технологий.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
+      </div>
+      <!-- Проект 2: ТГ боты для 40REF -->
+      <div class="project-card">
+        <img alt="Telegram Bots" loading="lazy" src="images/photo-1511367461989-f85a21fda167.png">
+        <div class="project-content">
+          <h3>ТГ боты для 40REF</h3>
+          <p>Комплексное решение для автоматизации бизнес-процессов в Telegram. Боты объединены в единую систему для оптимизации рабочих процессов.</p>
+          <div class="code-placeholder">
+            <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
+              Код проекта будет добавлен сюда: Посмотреть на GitHub
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Галерея -->
-  <section id="gallery">
-    <div class="container">
-      <h2>Галерея разработки</h2>
-      <div class="gallery-grid">
-        <img alt="Ночной Петербург" loading="lazy" src="images/photo-1523050854058-8df90110c9f1">
-        <img alt="Петербург мост" loading="lazy" src="images/photo-1529665253569-6d01c0eaf7b6">
-        <img alt="Современный Петербург" loading="lazy" src="images/photo-1593642632823-8f785ba67e45">
-        <img alt="Петербург закат" loading="lazy" src="images/photo-1556761175-5973dc0f32e7">
-      </div>
-    </div>
-  </section>
-  
-  <!-- Раздел "Навыки" -->
-  <section id="skills">
-    <div class="container">
-      <h2>Навыки и технологии</h2>
-      <div class="skills-grid">
-        <div class="skill-item">HTML5</div>
-        <div class="skill-item">CSS3 / SASS</div>
-        <div class="skill-item">JavaScript (ES6+)</div>
-        <div class="skill-item">React / Redux</div>
-        <div class="skill-item">Angular</div>
-        <div class="skill-item">Vue.js</div>
-        <div class="skill-item">Node.js</div>
-        <div class="skill-item">Express</div>
-        <div class="skill-item">TypeScript</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">Django</div>
-        <div class="skill-item">Flask</div>
-        <div class="skill-item">SQL / PostgreSQL</div>
-        <div class="skill-item">NoSQL / MongoDB</div>
-        <div class="skill-item">Java</div>
-        <div class="skill-item">C/C++</div>
-        <div class="skill-item">C# / ASP.NET</div>
-        <div class="skill-item">Git &amp; GitHub</div>
-        <div class="skill-item">Docker</div>
-        <div class="skill-item">Kubernetes</div>
-        <div class="skill-item">Linux (Ubuntu, CentOS)</div>
-        <div class="skill-item">RESTful API</div>
-        <div class="skill-item">GraphQL</div>
-        <div class="skill-item">Agile / Scrum</div>
-        <div class="skill-item">CI/CD</div>
-        <div class="skill-item">Machine Learning</div>
-        <div class="skill-item">Data Analysis</div>
-        <div class="skill-item">Cloud Services</div>
-        <div class="skill-item">Firebase</div>
-        <div class="skill-item">Physics Simulations</div>
-        <div class="skill-item">Algorithm Design</div>
-        <div class="skill-item">Data Visualization</div>
-        <div class="skill-item">Big Data</div>
-        <div class="skill-item">Cybersecurity</div>
-        <div class="skill-item">DevOps</div>
-        <div class="skill-item">Ruby on Rails</div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Раздел "Контакты" -->
-  <section id="contact">
-    <div class="container">
-      <h2>Контакты</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <p><strong>Телефон:</strong> +7 981 984 6577</p>
-          <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
-          <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
-        </div>
-        <div class="contact-form">
-          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" class="send-message-button">
-            Отправить сообщение по электронной почте GMail
-          </a>
+      <!-- Проект 3: SyncFiles -->
+      <div class="project-card">
+        <img alt="SyncFiles" loading="lazy" src="images/photo-1581092795361-8aa453ecb09b.png">
+        <div class="project-content">
+          <h3>SyncFiles</h3>
+          <p>Приложение для автоматической синхронизации файлов между локальной папкой и облачным хранилищем Яндекс Диск. Фронтенд на React, бэкенд на Python (Flask).</p>
+          <div class="code-placeholder">
+            <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
+              Код проекта будет добавлен сюда: Посмотреть на GitHub
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Футер -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Илья Олегович. Все права защищены.</p>
-    </div>
-  </footer>
-  
-  <!-- Всплывающий виджет опроса (справа внизу) -->
-  <div id="surveyWidget">
-    <span class="close-widget" id="widgetClose">&times;</span>
-    <!-- Начальный блок с приглашением -->
-    <div id="widgetIntro">
-      <p>Не хотите лучше понять, какой Telegram‑бот вам нужен?</p>
-      <button id="startSurvey">Начать опрос</button>
-    </div>
-    <!-- Блок с формой опроса (скрыт до нажатия кнопки) -->
-    <div id="widgetForm">
-      <h3>Ответьте на вопросы</h3>
-      <form id="surveyFormWidget">
-        <label>1. Какую функциональность вы ожидаете от бота?</label>
-        <select name="purpose" required>
-          <option value="">Выберите вариант</option>
-          <option value="обработка запросов">Обработка запросов пользователей</option>
-          <option value="рассылки">Рассылки и уведомления</option>
-          <option value="интеграция">Интеграция с внешними сервисами</option>
-        </select>
-        <label>2. Какой объем интеграций вам необходим?</label>
-        <select name="integration" required>
-          <option value="">Выберите вариант</option>
-          <option value="базовый">Базовый (контактная форма, уведомления)</option>
-          <option value="средний">Средний (интеграция с CRM, платежные системы)</option>
-          <option value="расширенный">Расширенный (полная автоматизация бизнес-процессов)</option>
-        </select>
-        <label>3. Какой бюджет проекта?</label>
-        <select name="budget" required>
-          <option value="">Выберите вариант</option>
-          <option value="эконом">Эконом</option>
-          <option value="стандарт">Стандарт</option>
-          <option value="премиум">Премиум</option>
-        </select>
-        <label>4. Дополнительные пожелания:</label>
-        <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
-        <button type="submit">Отправить</button>
-      </form>
+      <!-- Проект 4: Финансовый трекер -->
+      <div class="project-card">
+        <img alt="Финансовый трекер" loading="lazy" src="images/photo-1542744173-8e7e53415bb0.png">
+        <div class="project-content">
+          <h3>Финансовый трекер</h3>
+          <p>Приложение для прогнозирования и управления финансами с использованием алгоритмов машинного обучения и интеграцией с внешними сервисами.</p>
+          <div class="code-placeholder">
+            <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
+              Код проекта будет добавлен сюда: Посмотреть на GitHub
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <!-- Скрипт для виджета опроса и сбора доп. информации -->
-  <script>
-    // Глобальные переменные для информации об IP и регионе
-    var userIP = "неизвестен", userRegion = "неизвестен";
-    
-    // Попытка получить IP и регион через бесплатное API
-    fetch("https://ipapi.co/json/")
-      .then(response => response.json())
-      .then(data => {
-        userIP = data.ip || "неизвестен";
-        userRegion = data.region || "неизвестен";
-      })
-      .catch(err => { console.log("Ошибка получения IP/региона:", err); });
-    
-    // Показываем виджет через 2 секунды после загрузки
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        document.getElementById('surveyWidget').style.display = 'block';
-      }, 2000);
-    });
-    
-    // Закрытие виджета по клику на крестик
-    document.getElementById('widgetClose').addEventListener('click', function() {
-      document.getElementById('surveyWidget').style.display = 'none';
-    });
-    
-    // Переход от приветственного блока к форме опроса
-    document.getElementById('startSurvey').addEventListener('click', function() {
-      document.getElementById('widgetIntro').style.display = 'none';
-      document.getElementById('widgetForm').style.display = 'block';
-    });
-    
-    // Обработка отправки формы виджета
-    document.getElementById('surveyFormWidget').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Сбор данных формы
-      var purpose = this.elements['purpose'].value;
-      var integration = this.elements['integration'].value;
-      var budget = this.elements['budget'].value;
-      var notes = this.elements['notes'].value.trim();
-      
-      // Дополнительная информация: дата/время, браузер
-      var userDateTime = new Date().toString();
-      var userBrowser = navigator.userAgent;
-      
-      // Формирование сообщения
-      var message = "Новый запрос по Telegram‑боту:\n";
-      message += "1. Функциональность: " + purpose + "\n";
-      message += "2. Объем интеграций: " + integration + "\n";
-      message += "3. Бюджет: " + budget + "\n";
-      message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
-      message += "Доп. информация для улучшения качества обслуживания:\n";
-      message += "IP: " + userIP + "\n";
-      message += "Регион: " + userRegion + "\n";
-      message += "Дата и время: " + userDateTime + "\n";
-      message += "Браузер: " + userBrowser + "\n";
-      
-      // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
-      var phoneNumber = "79819846577";
-      var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
-      
-      // Открываем ссылку в новой вкладке
-      window.open(url, '_blank');
-      
-      // Скрываем виджет
-      document.getElementById('surveyWidget').style.display = 'none';
-    });
-  </script>
+</section>
+
+<!-- Раздел "Навыки" -->
+<section id="skills">
+  <div class="container">
+    <h2>Навыки и технологии</h2>
+    <div class="skills-grid">
+      <div class="skill-item">HTML5</div>
+      <div class="skill-item">CSS3 / SASS</div>
+      <div class="skill-item">JavaScript (ES6+)</div>
+      <div class="skill-item">React / Redux</div>
+      <div class="skill-item">Angular</div>
+      <div class="skill-item">Vue.js</div>
+      <div class="skill-item">Node.js</div>
+      <div class="skill-item">Express</div>
+      <div class="skill-item">TypeScript</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">Django</div>
+      <div class="skill-item">Flask</div>
+      <div class="skill-item">SQL / PostgreSQL</div>
+      <div class="skill-item">NoSQL / MongoDB</div>
+      <div class="skill-item">Java</div>
+      <div class="skill-item">C/C++</div>
+      <div class="skill-item">C# / ASP.NET</div>
+      <div class="skill-item">Git &amp; GitHub</div>
+      <div class="skill-item">Docker</div>
+      <div class="skill-item">Kubernetes</div>
+      <div class="skill-item">Linux (Ubuntu, CentOS)</div>
+      <div class="skill-item">RESTful API</div>
+      <div class="skill-item">GraphQL</div>
+      <div class="skill-item">Agile / Scrum</div>
+      <div class="skill-item">CI/CD</div>
+      <div class="skill-item">Machine Learning</div>
+      <div class="skill-item">Data Analysis</div>
+      <div class="skill-item">Cloud Services</div>
+      <div class="skill-item">Firebase</div>
+      <div class="skill-item">Physics Simulations</div>
+      <div class="skill-item">Algorithm Design</div>
+      <div class="skill-item">Data Visualization</div>
+      <div class="skill-item">Big Data</div>
+      <div class="skill-item">Cybersecurity</div>
+      <div class="skill-item">DevOps</div>
+      <div class="skill-item">Ruby on Rails</div>
+    </div>
+  </div>
+</section>
+
+<!-- Раздел "Контакты" -->
+<section id="contact">
+  <div class="container">
+    <h2>Контакты</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Телефон:</strong> +7 981 984 6577</p>
+        <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
+        <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
+      </div>
+      <div class="contact-form">
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" class="send-message-button">
+          Отправить сообщение по электронной почте GMail
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Футер -->
+<footer>
+  <div class="container">
+    <p>© 2025 Илья Олегович. Все права защищены.</p>
+  </div>
+</footer>
+
+<!-- Всплывающий виджет опроса (справа внизу) -->
+<div id="surveyWidget">
+  <span class="close-widget" id="widgetClose">&times;</span>
+  <!-- Начальный блок с приглашением -->
+  <div id="widgetIntro">
+    <p>Не хотите лучше понять, какой Telegram‑бот вам нужен?</p>
+    <button id="startSurvey">Начать опрос</button>
+  </div>
+  <!-- Блок с формой опроса (скрыт до нажатия кнопки) -->
+  <div id="widgetForm">
+    <h3>Ответьте на вопросы</h3>
+    <form id="surveyFormWidget">
+      <label>1. Какую функциональность вы ожидаете от бота?</label>
+      <select name="purpose" required>
+        <option value="">Выберите вариант</option>
+        <option value="обработка запросов">Обработка запросов пользователей</option>
+        <option value="рассылки">Рассылки и уведомления</option>
+        <option value="интеграция">Интеграция с внешними сервисами</option>
+      </select>
+      <label>2. Какой объем интеграций вам необходим?</label>
+      <select name="integration" required>
+        <option value="">Выберите вариант</option>
+        <option value="базовый">Базовый (контактная форма, уведомления)</option>
+        <option value="средний">Средний (интеграция с CRM, платежные системы)</option>
+        <option value="расширенный">Расширенный (полная автоматизация бизнес-процессов)</option>
+      </select>
+      <label>3. Какой бюджет проекта?</label>
+      <select name="budget" required>
+        <option value="">Выберите вариант</option>
+        <option value="эконом">Эконом</option>
+        <option value="стандарт">Стандарт</option>
+        <option value="премиум">Премиум</option>
+      </select>
+      <label>4. Дополнительные пожелания:</label>
+      <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!-- Скрипт для виджета опроса и сбора доп. информации -->
+<script>
+  // Глобальные переменные для информации об IP и регионе
+  var userIP = "неизвестен", userRegion = "неизвестен";
+
+  // Попытка получить IP и регион через бесплатное API
+  fetch("https://ipapi.co/json/")
+    .then(response => response.json())
+    .then(data => {
+      userIP = data.ip || "неизвестен";
+      userRegion = data.region || "неизвестен";
+    })
+    .catch(err => { console.log("Ошибка получения IP/региона:", err); });
+
+  // Показываем виджет через 2 секунды после загрузки
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.getElementById('surveyWidget').style.display = 'block';
+    }, 2000);
+  });
+
+  // Закрытие виджета по клику на крестик
+  document.getElementById('widgetClose').addEventListener('click', function() {
+    document.getElementById('surveyWidget').style.display = 'none';
+  });
+
+  // Переход от приветственного блока к форме опроса
+  document.getElementById('startSurvey').addEventListener('click', function() {
+    document.getElementById('widgetIntro').style.display = 'none';
+    document.getElementById('widgetForm').style.display = 'block';
+  });
+
+  // Обработка отправки формы виджета
+  document.getElementById('surveyFormWidget').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Сбор данных формы
+    var purpose = this.elements['purpose'].value;
+    var integration = this.elements['integration'].value;
+    var budget = this.elements['budget'].value;
+    var notes = this.elements['notes'].value.trim();
+
+    // Дополнительная информация: дата/время, браузер
+    var userDateTime = new Date().toString();
+    var userBrowser = navigator.userAgent;
+
+    // Формирование сообщения
+    var message = "Новый запрос по Telegram‑боту:\n";
+    message += "1. Функциональность: " + purpose + "\n";
+    message += "2. Объем интеграций: " + integration + "\n";
+    message += "3. Бюджет: " + budget + "\n";
+    message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
+    message += "Доп. информация:\n";
+    message += "Дата и время: " + userDateTime + "\n";
+
+    // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
+    var phoneNumber = "79819846577";
+    var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+
+    // Открываем ссылку в новой вкладке
+    window.open(url, '_blank');
+
+    // Скрываем виджет
+    document.getElementById('surveyWidget').style.display = 'none';
+  });
+</script>
 </body>
 </html>
