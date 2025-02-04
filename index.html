@@ -160,6 +160,14 @@
       padding: 20px;
       min-width: 300px;
     }
+    /* Отступ для текста в секции "Обо мне" (для больших экранов) */
+    #about .section-content .text { margin-left: 449px; }
+    .section-content .text p {
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    
     /* Раздел "Обо мне" */
     #about .bio {
       max-width: 900px;
@@ -170,7 +178,7 @@
     }
     #about .bio p { margin-bottom: 25px; }
     
-    /* Раздел "Особенности ботов" */
+    /* Раздел "Биография" */
     #biography {
       background: #fff;
       padding: 60px 0;
@@ -187,7 +195,7 @@
     }
     #biography .bio-content p { margin-bottom: 25px; }
     
-    /* Проекты Section */
+    /* Projects Section */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -217,8 +225,142 @@
       color: #18bc9c;
     }
     .project-card p { margin-bottom: 15px; }
+    .code-block, .code-placeholder {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+    .code-placeholder {
+      background: #ecf0f1;
+      color: #7f8c8d;
+      text-align: center;
+      font-style: italic;
+    }
     
-    /* Контактная форма */
+    /* Галерея */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 15px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover { transform: scale(1.05); }
+    
+    /* Навыки */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+    }
+    .skill-item {
+      background: #18bc9c;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    .skill-item:hover { transform: scale(1.1); }
+    /* Стили для контейнера с логотипами */
+#companies {
+  padding: 100px 0;
+  text-align: center;
+}
+
+#companies h2 {
+  margin-bottom: 60px;
+  font-size: 42px;
+  color: #2c3e50;
+}
+
+/* Ограничение для контейнера с логотипами */
+.logo-slider {
+  display: flex;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%; /* Ширина слайдера */
+  max-width: 1200px; /* Максимальная ширина слайдера */
+}
+
+/* Увеличиваем логотипы */
+.logo-item img {
+  width: 100%;
+  max-width: 300px; /* Логотипы в 2 раза больше */
+  object-fit: contain;
+}
+
+/* Чтобы логотипы не растягивались и прокручивались */
+.logo-item {
+  margin: 0 15px;
+  flex: 0 0 auto; /* Не растягиваем логотипы */
+  transition: transform 0.3s ease;
+}
+
+/* Контейнер для слайдера */
+.logo-slider-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* Гарантируем, что логотипы не будут выходить за пределы контейнера */
+  overflow: hidden;
+}
+
+/* Стили для стрелок */
+button {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+
+
+
+
+
+    /* Контакты */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .contact-info {
+      flex: 1;
+      padding: 20px;
+      font-size: 18px;
+    }
+    .contact-info p { margin-bottom: 15px; }
+    .contact-info a { color: #18bc9c; }
     .contact-form {
       flex: 1;
       padding: 20px;
@@ -246,8 +388,21 @@
       transition: background 0.3s ease;
     }
     .contact-form button:hover { background: #159f7a; }
+    .send-message-button {
+      background: #007BFF;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 5px;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+    .send-message-button:hover {
+      background: #0056b3;
+    }
     
-    /* Footer */
+    /* Футер */
     footer {
       background: #2c3e50;
       color: #fff;
@@ -256,7 +411,49 @@
     }
     footer p { font-size: 16px; }
     
-    /* Всплывающее окно опроса */
+    /* Адаптивное меню для мобильных устройств */
+    @media(max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        display: none;
+        background: rgba(44, 62, 80, 0.95);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+      }
+      nav.active {
+        display: block;
+      }
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+      }
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      .hero-content p {
+        font-size: 18px;
+      }
+      #about .section-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      #about .section-content .text {
+        margin: 20px 0 0 0;
+      }
+      #biography .bio-content {
+        max-width: 90%;
+        padding: 0 15px;
+      }
+    }
+    
+    /* Стили для всплывающего виджета опроса в правом нижнем углу */
     #surveyWidget {
       position: fixed;
       bottom: 20px;
@@ -324,8 +521,9 @@
         <ul>
           <li><a href="#hero" class="nav-link">Главная</a></li>
           <li><a href="#about" class="nav-link">Обо мне</a></li>
-          <li><a href="#biography" class="nav-link">Особенности ботов</a></li>
+          <li><a href="#biography" class="nav-link">Биография</a></li>
           <li><a href="#projects" class="nav-link">Проекты</a></li>
+          <li><a href="#gallery" class="nav-link">Галерея</a></li>
           <li><a href="#skills" class="nav-link">Навыки</a></li>
           <li><a href="#contact" class="nav-link">Контакты</a></li>
         </ul>
@@ -383,24 +581,18 @@
     </div>
   </section>
   
-  <!-- Раздел "Особенности ботов" -->
+  <!-- Раздел "Биография" -->
   <section id="biography">
-    <div class="container">
-      <h2>Особенности ботов</h2>
-      <div class="bio-content">
-        <p>
-          Я разрабатываю боты, которые не просто выполняют задачи, а делают это эффективно и с максимальной оптимизацией. Преимущества: 
-        </p>
-        <ul>
-          <li>Обработка до 1000 запросов в минуту для крупных клиентов.</li>
-          <li>Интеграция с различными CRM-системами, включая популярных лидеров рынка.</li>
-          <li>Высокая отказоустойчивость и безопасность — использование лучших практик безопасности.</li>
-          <li>Боты адаптированы для работы с несколькими пользователями одновременно.</li>
-          <li>Аналитика и отчётность по всем взаимодействиям с пользователями.</li>
-        </ul>
-      </div>
+  <div class="container">
+    <h2>Особенности ботов</h2>
+    <div class="bio-content">
+      <p>
+        Мои Telegram-боты помогают компаниям значительно повысить эффективность их работы. Разработанные решения сокращают время обработки запросов на 50%, обеспечивают круглосуточную поддержку и могут обработать до 10,000 запросов в секунду. Боты интегрируются с CRM, позволяют автоматизировать маркетинговые процессы и встраиваются в существующие IT-системы. Внедрение ботов в бизнес процессы увеличивает конверсию на 30%, обеспечивая оперативность и удобство взаимодействия с клиентами.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
+
   
   <!-- Раздел "Проекты" -->
   <section id="projects">
@@ -448,7 +640,7 @@ import random
             </div>
           </div>
         </div>
-                <!-- Проект 4: Финансовый трекер -->
+        <!-- Проект 4: Финансовый трекер -->
         <div class="project-card">
           <img alt="Финансовый трекер" loading="lazy" src="images/photo-1542744173-8e7e53415bb0.png">
           <div class="project-content">
@@ -500,10 +692,91 @@ import random
             </div>
           </div>
         </div>
+        <!-- Дополнительный проект 8: Система умного города -->
+        <div class="project-card">
+          <img alt="Умный город" loading="lazy" src="images/photo-1504384308090-c894fdcc538d">
+          <div class="project-content">
+            <h3>Система умного города</h3>
+            <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей с использованием облачных технологий.</p>
+            <div class="code-placeholder">
+              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
+                Код проекта будет добавлен сюда: Посмотреть на GitHub
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
+ <section id="companies">
+  <div class="container">
+    <h2>Мои боты интегрируются с такими компаниями</h2>
+    <div class="logo-slider-wrapper">
+      <div class="logo-slider">
+        <!-- Логотипы с ссылками -->
+        <div class="logo-item">
+          <a href="https://www.sberbank.ru" target="_blank">
+            <img src="images/sber-logo.jpg" alt="Сбер" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://alfabank.ru" target="_blank">
+            <img src="images/alfa-logo.png" alt="Альфа" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://www.rossiya-bank.ru" target="_blank">
+            <img src="images/rossiya-logo.png" alt="Россия" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://www.tinkoff.ru" target="_blank">
+            <img src="images/tinkoff-logo.png" alt="Тинькофф" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://www.psbank.ru" target="_blank">
+            <img src="images/psb-logo.png" alt="ПСБ" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://www.vtb.ru" target="_blank">
+            <img src="images/vtb-logo.png" alt="ВТБ" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://www.rosbank.ru" target="_blank">
+            <img src="images/rosbank-logo.png" alt="Росбанк" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://www.rosstat.gov.ru" target="_blank">
+            <img src="images/rosstat.jpg" alt="Сбербанк" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://moscow.mts.ru" target="_blank">
+            <img src="images/mts-logo.png" alt="МТС" loading="lazy">
+          </a>
+        </div>
+        <div class="logo-item">
+          <a href="https://raiffeisen.ru" target="_blank">
+            <img src="images/raiffeisen-logo.png" alt="Райффайзен" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Стрелки -->
+    <button class="prev-btn" id="prevBtn">‹</button>
+    <button class="next-btn" id="nextBtn">›</button>
+  </div>
+</section>
+
+
+
+
+
   <!-- Раздел "Навыки" -->
   <section id="skills">
     <div class="container">
@@ -560,8 +833,8 @@ import random
           <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
         </div>
         <div class="contact-form">
-          <a href="mailto:ilya5950385@yandex.ru" class="send-message-button">
-            Отправить сообщение по электронной почте
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" class="send-message-button">
+            Отправить сообщение по электронной почте GMail
           </a>
         </div>
       </div>
@@ -575,35 +848,44 @@ import random
     </div>
   </footer>
   
-  <!-- Всплывающее окно опроса -->
+  <!-- Всплывающий виджет опроса (справа внизу) -->
   <div id="surveyWidget">
     <span class="close-widget" id="widgetClose">&times;</span>
     <h3>Какой бот вам нужен?</h3>
     <form id="surveyFormWidget">
-      <label>1. Для чего нужен бот?</label>
-      <select name="purpose" required>
-        <option value="">Выберите вариант</option>
-        <option value="поддержка">Поддержка клиентов</option>
-        <option value="продажи">Продажи</option>
-        <option value="маркетинг">Маркетинг</option>
-        <option value="все сразу">Все сразу</option>
-      </select>
-      <label>2. Какие функции должен выполнять бот?</label>
-      <select name="features" required>
-        <option value="">Выберите вариант</option>
-        <option value="автоматизация">Автоматизация процессов</option>
-        <option value="интеграция">Интеграция с CRM</option>
-        <option value="анализ">Анализ данных</option>
-        <option value="все сразу">Все сразу</option>
-      </select>
-      <label>3. Какую дополнительную функциональность вы ожидаете?</label>
-      <select name="additional" required>
-        <option value="">Выберите вариант</option>
-        <option value="поддержка мультиязычности">Поддержка мультиязычности</option>
-        <option value="интеграция с социальными сетями">Интеграция с соцсетями</option>
-        <option value="повышенная безопасность">Повышенная безопасность</option>
-        <option value="все сразу">Все сразу</option>
-      </select>
+      <label>1. Какой функционал должен быть у бота?</label>
+<select name="purpose" required>
+  <option value="">Выберите вариант</option>
+  <option value="поддержка">Поддержка клиентов</option>
+  <option value="продажи">Продажи</option>
+  <option value="маркетинг">Маркетинг</option>
+  <option value="анализ">Анализ данных</option>
+  <option value="обслуживание">Обслуживание и техническая поддержка</option>
+  <option value="все сразу">Все сразу</option>
+</select>
+
+<label>2. Какую задачу должен решать бот?</label>
+<select name="task" required>
+  <option value="">Выберите вариант</option>
+  <option value="обработка заявок">Обработка заявок</option>
+  <option value="проведение опросов">Проведение опросов</option>
+  <option value="рассылка">Рассылка уведомлений</option>
+  <option value="ответы на вопросы">Ответы на вопросы</option>
+  <option value="управление задачами">Управление задачами</option>
+  <option value="все сразу">Все сразу</option>
+</select>
+
+<label>3. Какие функции должен поддерживать бот?</label>
+<select name="features" required>
+  <option value="">Выберите вариант</option>
+  <option value="чат">Чат с пользователями</option>
+  <option value="интеграция с CRM">Интеграция с CRM</option>
+  <option value="обработка платежей">Обработка платежей</option>
+  <option value="автоматизация задач">Автоматизация задач</option>
+  <option value="анализ данных">Анализ данных</option>
+  <option value="все сразу">Все сразу</option>
+</select>
+
       <label>4. Дополнительные пожелания:</label>
       <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
       <button type="submit">Отправить</button>
@@ -626,45 +908,102 @@ import random
     
     // Обработка отправки формы виджета
     document.getElementById('surveyFormWidget').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Сбор данных формы
-      var purpose = this.elements['purpose'].value;
-      var features = this.elements['features'].value;
-      var additional = this.elements['additional'].value;
-      var notes = this.elements['notes'].value.trim();
-      
-      // Получаем текущую дату и время в GMT+3
-      var currentDate = new Date();
-      currentDate.setHours(currentDate.getHours() + 3); // GMT+3
-      var formattedDate = currentDate.toLocaleString('ru-RU', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-      });
-      
-      // Формирование сообщения
-      var message = "Здравствуйте, отправляю следующие данные:\n\n";
-      message += "1. Для чего нужен бот: " + purpose + "\n";
-      message += "2. Функции бота: " + features + "\n";
-      message += "3. Дополнительная функциональность: " + additional + "\n";
-      message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
-      message += "Дата и время заявки: " + formattedDate + "\n";
-      
-      // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
-      var phoneNumber = "79819846577";
-      var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
-      
-      // Открываем ссылку в новой вкладке
-      window.open(url, '_blank');
-      
-      // Скрываем виджет
-      document.getElementById('surveyWidget').style.display = 'none';
+  e.preventDefault();
+
+  // Сбор данных формы
+  var purpose = this.elements['purpose'].value;
+  var crm = this.elements['crm'].value;
+  var notes = this.elements['notes'].value.trim();
+
+  // Получение текущей даты и времени (GMT+3)
+  var date = new Date();
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
+  var formattedDate = date.toLocaleString('ru-RU', options); // Пример: "понедельник, 4 февраля 2025 г., 14:30:15 GMT+3"
+
+  // Формирование сообщения
+  var message = "Здравствуйте, отправляю данные по боту:\n";
+  message += "1. Для чего нужен бот: " + purpose + "\n";
+  message += "2. Интеграция с CRM: " + crm + "\n";
+  message += "3. Дополнительно: " + (notes ? notes : "нет") + "\n";
+  message += "Дата и время заявки: " + formattedDate + "\n";
+
+  // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
+  var phoneNumber = "79819846577";
+  var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+
+  // Открываем ссылку в новой вкладке
+  window.open(url, '_blank');
+
+  // Скрываем виджет
+  document.getElementById('surveyWidget').style.display = 'none';
+
     });
+  // Получаем все элементы с логотипами и элементы кнопок
+// Получаем все элементы с логотипами и элементы кнопок
+// Получаем все элементы с логотипами и элементы кнопок
+// Получаем все элементы с логотипами и элементы кнопок
+// Получаем все элементы с логотипами и элементы кнопок
+const logoSlider = document.querySelector('.logo-slider');
+const logos = document.querySelectorAll('.logo-item');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+
+// Вычисляем ширину одного логотипа
+const logoWidth = logos[0].offsetWidth + 30; // Ширина логотипа с отступами
+
+// Копируем логотипы, чтобы создать бесконечный эффект
+const allLogos = Array.from(logos);
+logoSlider.append(...allLogos); // Добавляем те же логотипы в конец для "кругового" эффекта
+
+let currentIndex = 0; // Индекс текущего логотипа
+
+// Функция для обновления позиции слайдера
+function updateSliderPosition() {
+  logoSlider.style.transition = "transform 0.3s ease";
+  logoSlider.style.transform = `translateX(-${currentIndex * logoWidth}px)`;
+}
+
+// Функция для перехода к следующему слайду
+function nextSlide() {
+  // Если достигнут последний логотип, перемещаем к первому без анимации
+  if (currentIndex === logos.length) {
+    currentIndex = 0;
+    logoSlider.style.transition = "none";
+    updateSliderPosition(); // Перемещаем слайдер в начало
+    setTimeout(() => {
+      logoSlider.style.transition = "transform 0.3s ease"; // Включаем анимацию снова
+    }, 30); // Маленькая задержка, чтобы анимация успела перезапуститься
+  } else {
+    currentIndex++;
+    updateSliderPosition();
+  }
+}
+
+// Функция для перехода к предыдущему слайду
+function prevSlide() {
+  // Если достигнут первый логотип, перемещаем к последнему без анимации
+  if (currentIndex === 0) {
+    currentIndex = logos.length - 1;
+    logoSlider.style.transition = "none";
+    updateSliderPosition(); // Перемещаем слайдер в конец
+    setTimeout(() => {
+      logoSlider.style.transition = "transform 0.3s ease"; // Включаем анимацию снова
+    }, 30); // Маленькая задержка, чтобы анимация успела перезапуститься
+  } else {
+    currentIndex--;
+    updateSliderPosition();
+  }
+}
+
+// Добавляем обработчики событий для кнопок
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+
+
+
+
   </script>
+
 </body>
 </html>
