@@ -311,15 +311,36 @@
 }
 
 /* Контейнер для слайдера */
+/* Контейнер для слайдера */
 .logo-slider-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
-  /* Гарантируем, что логотипы не будут выходить за пределы контейнера */
-  overflow: hidden;
+  overflow: hidden; /* Скрываем лишние логотипы */
 }
 
-/* Стили для стрелок */
+/* Ограничение количества логотипов в одном ряду */
+.logo-slider {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+/* Логотипы */
+.logo-item img {
+  width: 100%;
+  max-width: 250px; /* Логотипы увеличены */
+  object-fit: contain;
+}
+
+/* Логотипы будут скрыты в зависимости от видимости */
+.logo-item {
+  margin: 0 15px;
+  flex: 0 0 auto; /* Не растягиваем логотипы */
+  transition: transform 0.3s ease;
+}
+
+/* Стрелки */
 button {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -777,6 +798,7 @@ import random
 
 
 
+
   <!-- Раздел "Навыки" -->
   <section id="skills">
     <div class="container">
@@ -943,6 +965,7 @@ import random
 // Получаем все элементы с логотипами и элементы кнопок
 // Получаем все элементы с логотипами и элементы кнопок
 // Получаем все элементы с логотипами и элементы кнопок
+// Получаем все элементы с логотипами и элементы кнопок
 const logoSlider = document.querySelector('.logo-slider');
 const logos = document.querySelectorAll('.logo-item');
 const nextBtn = document.getElementById('nextBtn');
@@ -951,9 +974,9 @@ const prevBtn = document.getElementById('prevBtn');
 // Вычисляем ширину одного логотипа
 const logoWidth = logos[0].offsetWidth + 30; // Ширина логотипа с отступами
 
-// Копируем логотипы, чтобы создать бесконечный эффект
+// Добавляем копии логотипов для бесконечного прокручивания
 const allLogos = Array.from(logos);
-logoSlider.append(...allLogos); // Добавляем те же логотипы в конец для "кругового" эффекта
+logoSlider.append(...allLogos); // Добавляем логотипы в конец для бесконечности
 
 let currentIndex = 0; // Индекс текущего логотипа
 
@@ -965,7 +988,6 @@ function updateSliderPosition() {
 
 // Функция для перехода к следующему слайду
 function nextSlide() {
-  // Если достигнут последний логотип, перемещаем к первому без анимации
   if (currentIndex === logos.length) {
     currentIndex = 0;
     logoSlider.style.transition = "none";
@@ -981,9 +1003,8 @@ function nextSlide() {
 
 // Функция для перехода к предыдущему слайду
 function prevSlide() {
-  // Если достигнут первый логотип, перемещаем к последнему без анимации
   if (currentIndex === 0) {
-    currentIndex = logos.length - 1;
+    currentIndex = logos.length - 4; // Переходим к последним логотипам
     logoSlider.style.transition = "none";
     updateSliderPosition(); // Перемещаем слайдер в конец
     setTimeout(() => {
@@ -998,6 +1019,7 @@ function prevSlide() {
 // Добавляем обработчики событий для кнопок
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
+
 
 
 
