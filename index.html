@@ -844,188 +844,165 @@ import random
     </div>
   </section>
   
-  <!-- Раздел "Контакты" -->
-  <section id="contact">
-    <div class="container">
-      <h2>Контакты</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <p><strong>Телефон:</strong> +7 981 984 6577</p>
-          <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
-          <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
-        </div>
-        <div class="contact-form">
-          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" class="send-message-button">
-            Отправить сообщение по электронной почте GMail
-          </a>
-        </div>
+<!-- Раздел "Контакты" -->
+<section id="contact">
+  <div class="container">
+    <h2>Контакты</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Телефон:</strong> +7 981 984 6577</p>
+        <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
+        <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
       </div>
     </div>
-  </section>
-  
-  <!-- Футер -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Илья Олегович. Все права защищены.</p>
-    </div>
-  </footer>
-  
-  <!-- Всплывающий виджет опроса (справа внизу) -->
-  <div id="surveyWidget">
-    <span class="close-widget" id="widgetClose">&times;</span>
-    <h3>Какой бот вам нужен?</h3>
-    <form id="surveyFormWidget">
-      <label>1. Какой функционал должен быть у бота?</label>
-<select name="purpose" required>
-  <option value="">Выберите вариант</option>
-  <option value="поддержка">Поддержка клиентов</option>
-  <option value="продажи">Продажи</option>
-  <option value="маркетинг">Маркетинг</option>
-  <option value="анализ">Анализ данных</option>
-  <option value="обслуживание">Обслуживание и техническая поддержка</option>
-  <option value="все сразу">Все сразу</option>
-</select>
-
-<label>2. Какую задачу должен решать бот?</label>
-<select name="task" required>
-  <option value="">Выберите вариант</option>
-  <option value="обработка заявок">Обработка заявок</option>
-  <option value="проведение опросов">Проведение опросов</option>
-  <option value="рассылка">Рассылка уведомлений</option>
-  <option value="ответы на вопросы">Ответы на вопросы</option>
-  <option value="управление задачами">Управление задачами</option>
-  <option value="все сразу">Все сразу</option>
-</select>
-
-<label>3. Какие функции должен поддерживать бот?</label>
-<select name="features" required>
-  <option value="">Выберите вариант</option>
-  <option value="чат">Чат с пользователями</option>
-  <option value="интеграция с CRM">Интеграция с CRM</option>
-  <option value="обработка платежей">Обработка платежей</option>
-  <option value="автоматизация задач">Автоматизация задач</option>
-  <option value="анализ данных">Анализ данных</option>
-  <option value="все сразу">Все сразу</option>
-</select>
-
-      <label>4. Дополнительные пожелания:</label>
-      <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
-      <button type="submit">Отправить</button>
-    </form>
   </div>
-  
-  <!-- Скрипт для виджета опроса -->
-  <script>
-    // Функция показа виджета через 2 секунды после загрузки
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        document.getElementById('surveyWidget').style.display = 'block';
-      }, 2000);
-    });
-    
-    // Закрытие виджета по клику на крестик
-    document.getElementById('widgetClose').addEventListener('click', function() {
-      document.getElementById('surveyWidget').style.display = 'none';
-    });
-    
-    // Обработка отправки формы виджета
-    document.getElementById('surveyFormWidget').addEventListener('submit', function(e) {
-  e.preventDefault();
+</section>
 
-  // Сбор данных формы
-  var purpose = this.elements['purpose'].value;
-  var crm = this.elements['crm'].value;
-  var notes = this.elements['notes'].value.trim();
+<!-- Всплывающий виджет опроса (справа внизу) -->
+<div id="surveyWidget">
+  <span class="close-widget" id="widgetClose">&times;</span>
+  <h3>Какой бот вам нужен?</h3>
+  <form id="surveyFormWidget">
+    <label>1. Какой функционал должен быть у бота?</label>
+    <select name="purpose" required>
+      <option value="">Выберите вариант</option>
+      <option value="поддержка">Поддержка клиентов</option>
+      <option value="продажи">Продажи</option>
+      <option value="маркетинг">Маркетинг</option>
+      <option value="анализ">Анализ данных</option>
+      <option value="обслуживание">Обслуживание и техническая поддержка</option>
+      <option value="все сразу">Все сразу</option>
+    </select>
 
-  // Получение текущей даты и времени (GMT+3)
-  var date = new Date();
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
-  var formattedDate = date.toLocaleString('ru-RU', options); // Пример: "понедельник, 4 февраля 2025 г., 14:30:15 GMT+3"
+    <label>2. Какую задачу должен решать бот?</label>
+    <select name="task" required>
+      <option value="">Выберите вариант</option>
+      <option value="обработка заявок">Обработка заявок</option>
+      <option value="проведение опросов">Проведение опросов</option>
+      <option value="рассылка">Рассылка уведомлений</option>
+      <option value="ответы на вопросы">Ответы на вопросы</option>
+      <option value="управление задачами">Управление задачами</option>
+      <option value="все сразу">Все сразу</option>
+    </select>
 
-  // Формирование сообщения
-  var message = "Здравствуйте, отправляю данные по боту:\n";
-  message += "1. Для чего нужен бот: " + purpose + "\n";
-  message += "2. Интеграция с CRM: " + crm + "\n";
-  message += "3. Дополнительно: " + (notes ? notes : "нет") + "\n";
-  message += "Дата и время заявки: " + formattedDate + "\n";
+    <label>3. Какие функции должен поддерживать бот?</label>
+    <select name="features" required>
+      <option value="">Выберите вариант</option>
+      <option value="чат">Чат с пользователями</option>
+      <option value="интеграция с CRM">Интеграция с CRM</option>
+      <option value="обработка платежей">Обработка платежей</option>
+      <option value="автоматизация задач">Автоматизация задач</option>
+      <option value="анализ данных">Анализ данных</option>
+      <option value="все сразу">Все сразу</option>
+    </select>
 
-  // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
-  var phoneNumber = "79819846577";
-  var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+    <label>4. Дополнительные пожелания:</label>
+    <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
 
-  // Открываем ссылку в новой вкладке
-  window.open(url, '_blank');
+    <!-- Кнопка отправки -->
+    <button type="button" id="sendMessageBtn">Отправить в WhatsApp</button>
+  </form>
+</div>
 
-  // Скрываем виджет
-  document.getElementById('surveyWidget').style.display = 'none';
+<!-- Скрипт для виджета опроса -->
+<script>
+  // Функция показа виджета через 2 секунды после загрузки
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.getElementById('surveyWidget').style.display = 'block';
+    }, 2000);
+  });
 
-    });
-  // Получаем все элементы с логотипами и элементы кнопок
-// Получаем все элементы с логотипами и элементы кнопок
-// Получаем все элементы с логотипами и элементы кнопок
-// Получаем все элементы с логотипами и элементы кнопок
-// Получаем все элементы с логотипами и элементы кнопок
-// Получаем все элементы с логотипами и элементы кнопок
-const logoSlider = document.querySelector('.logo-slider');
-const logos = document.querySelectorAll('.logo-item');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
+  // Закрытие виджета по клику на крестик
+  document.getElementById('widgetClose').addEventListener('click', function() {
+    document.getElementById('surveyWidget').style.display = 'none';
+  });
 
-// Вычисляем ширину одного логотипа
-const logoWidth = logos[0].offsetWidth + 30; // Ширина логотипа с отступами
+  // Обработка отправки формы виджета через WhatsApp
+  document.getElementById('sendMessageBtn').addEventListener('click', function() {
+    var form = document.getElementById('surveyFormWidget');
+    var purpose = form.elements['purpose'].value;
+    var task = form.elements['task'].value;
+    var features = form.elements['features'].value;
+    var notes = form.elements['notes'].value.trim();
 
-// Добавляем копии логотипов для бесконечного прокручивания
-const allLogos = Array.from(logos);
-logoSlider.append(...allLogos); // Добавляем логотипы в конец для бесконечности
+    // Формирование сообщения
+    var message = "Здравствуйте, отправляю данные по боту:\n";
+    message += "1. Для чего нужен бот: " + purpose + "\n";
+    message += "2. Задача бота: " + task + "\n";
+    message += "3. Функции: " + features + "\n";
+    message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n";
 
-let currentIndex = 0; // Индекс текущего логотипа
+    // Формирование ссылки на WhatsApp
+    var phoneNumber = "79819846577";  // Ваш номер без плюса
+    var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
 
-// Функция для обновления позиции слайдера
-function updateSliderPosition() {
-  logoSlider.style.transition = "transform 0.3s ease";
-  logoSlider.style.transform = `translateX(-${currentIndex * logoWidth}px)`;
-}
+    // Открываем ссылку в новой вкладке для отправки сообщения в WhatsApp
+    window.open(url, '_blank');
 
-// Функция для перехода к следующему слайду
-function nextSlide() {
-  if (currentIndex === logos.length) {
-    currentIndex = 0;
-    logoSlider.style.transition = "none";
-    updateSliderPosition(); // Перемещаем слайдер в начало
-    setTimeout(() => {
-      logoSlider.style.transition = "transform 0.3s ease"; // Включаем анимацию снова
-    }, 30); // Маленькая задержка, чтобы анимация успела перезапуститься
-  } else {
-    currentIndex++;
-    updateSliderPosition();
+    // Скрываем виджет после отправки
+    document.getElementById('surveyWidget').style.display = 'none';
+  });
+</script>
+
+<!-- Стиль для виджета -->
+<style>
+  #surveyWidget {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: none;
   }
-}
 
-// Функция для перехода к предыдущему слайду
-function prevSlide() {
-  if (currentIndex === 0) {
-    currentIndex = logos.length - 4; // Переходим к последним логотипам
-    logoSlider.style.transition = "none";
-    updateSliderPosition(); // Перемещаем слайдер в конец
-    setTimeout(() => {
-      logoSlider.style.transition = "transform 0.3s ease"; // Включаем анимацию снова
-    }, 30); // Маленькая задержка, чтобы анимация успела перезапуститься
-  } else {
-    currentIndex--;
-    updateSliderPosition();
+  .close-widget {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
   }
-}
 
-// Добавляем обработчики событий для кнопок
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+  #surveyFormWidget label {
+    display: block;
+    margin: 10px 0 5px;
+  }
 
+  #surveyFormWidget select, #surveyFormWidget textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
 
+  #surveyFormWidget button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
 
+  #surveyFormWidget button:hover {
+    background-color: #0056b3;
+  }
+</style>
 
-
-
-  </script>
+<!-- Футер -->
+<footer>
+  <div class="container">
+    <p>© 2025 Илья Олегович. Все права защищены.</p>
+  </div>
+</footer>
 
 </body>
 </html>
