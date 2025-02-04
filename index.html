@@ -858,8 +858,8 @@ import random
   </div>
 </section>
 
-<!-- Всплывающий виджет опроса (справа внизу) -->
-<div id="surveyWidget">
+<!-- Виджет опроса, скрытый изначально -->
+<div id="surveyWidget" style="display: none;">
   <span class="close-widget" id="widgetClose">&times;</span>
   <h3>Какой бот вам нужен?</h3>
   <form id="surveyFormWidget">
@@ -904,53 +904,62 @@ import random
   </form>
 </div>
 
+<!-- Кнопка для показа виджета -->
+<button id="helpButton" style="display: none;">Вам помочь с выбором?</button>
+
 <!-- Скрипт для виджета опроса -->
 <script>
-  // Функция показа виджета через 2 секунды после загрузки
+  // Показать кнопку "Вам помочь с выбором?" через 2 секунды
   window.addEventListener('load', function() {
     setTimeout(function() {
-      document.getElementById('surveyWidget').style.display = 'block';
+      document.getElementById('helpButton').style.display = 'block';
     }, 2000);
+  });
+
+  // Показать виджет по клику на кнопку
+  document.getElementById('helpButton').addEventListener('click', function() {
+    document.getElementById('surveyWidget').style.display = 'block';
+    this.style.display = 'none'; // Скрыть кнопку после клика
   });
 
   // Закрытие виджета по клику на крестик
   document.getElementById('widgetClose').addEventListener('click', function() {
     document.getElementById('surveyWidget').style.display = 'none';
+    document.getElementById('helpButton').style.display = 'block'; // Показать кнопку снова
   });
 
   // Обработка отправки формы виджета через WhatsApp
   document.getElementById('sendMessageBtn').addEventListener('click', function() {
-  var form = document.getElementById('surveyFormWidget');
-  var purpose = form.elements['purpose'].value;
-  var task = form.elements['task'].value;
-  var features = form.elements['features'].value;
-  var notes = form.elements['notes'].value.trim();
+    var form = document.getElementById('surveyFormWidget');
+    var purpose = form.elements['purpose'].value;
+    var task = form.elements['task'].value;
+    var features = form.elements['features'].value;
+    var notes = form.elements['notes'].value.trim();
 
-  // Получение текущей даты и времени (GMT+3)
-  var date = new Date();
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
-  var formattedDate = date.toLocaleString('ru-RU', options); // Пример: "понедельник, 4 февраля 2025 г., 14:30:15 GMT+3"
+    // Получение текущей даты и времени (GMT+3)
+    var date = new Date();
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
+    var formattedDate = date.toLocaleString('ru-RU', options); // Пример: "понедельник, 4 февраля 2025 г., 14:30:15 GMT+3"
 
-  // Формирование сообщения
-  var message = "Здравствуйте!\n\n";
-  message += "Вы отправили данные для бота:\n";
-  message += "1. Для чего нужен бот: " + purpose + "\n";
-  message += "2. Задача бота: " + task + "\n";
-  message += "3. Функции: " + features + "\n";
-  message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
-  message += "Дата и время отправки: " + formattedDate + "\n";
+    // Формирование сообщения
+    var message = "Здравствуйте!\n\n";
+    message += "Вы отправили данные для бота:\n";
+    message += "1. Для чего нужен бот: " + purpose + "\n";
+    message += "2. Задача бота: " + task + "\n";
+    message += "3. Функции: " + features + "\n";
+    message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
+    message += "Дата и время отправки: " + formattedDate + "\n";
 
-  // Формирование ссылки на WhatsApp
-  var phoneNumber = "79819846577";  // Ваш номер без плюса
-  var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+    // Формирование ссылки на WhatsApp
+    var phoneNumber = "79819846577";  // Ваш номер без плюса
+    var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
 
-  // Открываем ссылку в новой вкладке для отправки сообщения в WhatsApp
-  window.open(url, '_blank');
+    // Открываем ссылку в новой вкладке для отправки сообщения в WhatsApp
+    window.open(url, '_blank');
 
-  // Скрываем виджет после отправки
-  document.getElementById('surveyWidget').style.display = 'none';
-});
-
+    // Скрываем виджет после отправки
+    document.getElementById('surveyWidget').style.display = 'none';
+  });
 </script>
 
 <!-- Стиль для виджета -->
@@ -966,6 +975,7 @@ import random
     padding: 20px;
     display: none;
     z-index: 999;
+    transition: all 0.3s ease;
   }
 
   .close-widget {
@@ -1003,10 +1013,28 @@ import random
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 205px;
+    margin-top: 255px; /* Сдвиг кнопки на 255px вниз */
   }
 
   #surveyFormWidget button:hover {
+    background-color: #0056b3;
+  }
+
+  #helpButton {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+  }
+
+  #helpButton:hover {
     background-color: #0056b3;
   }
 </style>
