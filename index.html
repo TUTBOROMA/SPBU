@@ -160,14 +160,6 @@
       padding: 20px;
       min-width: 300px;
     }
-    /* Отступ для текста в секции "Обо мне" (для больших экранов) */
-    #about .section-content .text { margin-left: 449px; }
-    .section-content .text p {
-      margin-bottom: 20px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    
     /* Раздел "Обо мне" */
     #about .bio {
       max-width: 900px;
@@ -178,7 +170,7 @@
     }
     #about .bio p { margin-bottom: 25px; }
     
-    /* Раздел "Биография" */
+    /* Раздел "Особенности ботов" */
     #biography {
       background: #fff;
       padding: 60px 0;
@@ -195,7 +187,7 @@
     }
     #biography .bio-content p { margin-bottom: 25px; }
     
-    /* Projects Section */
+    /* Проекты Section */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -225,69 +217,8 @@
       color: #18bc9c;
     }
     .project-card p { margin-bottom: 15px; }
-    .code-block, .code-placeholder {
-      background: #272822;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 5px;
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      overflow-x: auto;
-    }
-    .code-placeholder {
-      background: #ecf0f1;
-      color: #7f8c8d;
-      text-align: center;
-      font-style: italic;
-    }
     
-    /* Галерея */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 15px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid img:hover { transform: scale(1.05); }
-    
-    /* Навыки */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-    }
-    .skill-item {
-      background: #18bc9c;
-      color: #fff;
-      padding: 15px;
-      border-radius: 5px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-    .skill-item:hover { transform: scale(1.1); }
-    
-    /* Контакты */
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .contact-info {
-      flex: 1;
-      padding: 20px;
-      font-size: 18px;
-    }
-    .contact-info p { margin-bottom: 15px; }
-    .contact-info a { color: #18bc9c; }
+    /* Контактная форма */
     .contact-form {
       flex: 1;
       padding: 20px;
@@ -315,21 +246,8 @@
       transition: background 0.3s ease;
     }
     .contact-form button:hover { background: #159f7a; }
-    .send-message-button {
-      background: #007BFF;
-      color: #fff;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 5px;
-      display: inline-block;
-      text-align: center;
-      transition: background 0.3s ease;
-    }
-    .send-message-button:hover {
-      background: #0056b3;
-    }
     
-    /* Футер */
+    /* Footer */
     footer {
       background: #2c3e50;
       color: #fff;
@@ -338,49 +256,7 @@
     }
     footer p { font-size: 16px; }
     
-    /* Адаптивное меню для мобильных устройств */
-    @media(max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav {
-        display: none;
-        background: rgba(44, 62, 80, 0.95);
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-      }
-      nav.active {
-        display: block;
-      }
-      nav ul li {
-        display: block;
-        margin: 10px 0;
-      }
-      .hero-content h1 {
-        font-size: 32px;
-      }
-      .hero-content p {
-        font-size: 18px;
-      }
-      #about .section-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      #about .section-content .text {
-        margin: 20px 0 0 0;
-      }
-      #biography .bio-content {
-        max-width: 90%;
-        padding: 0 15px;
-      }
-    }
-    
-    /* Стили для всплывающего виджета опроса в правом нижнем углу */
+    /* Всплывающее окно опроса */
     #surveyWidget {
       position: fixed;
       bottom: 20px;
@@ -448,9 +324,8 @@
         <ul>
           <li><a href="#hero" class="nav-link">Главная</a></li>
           <li><a href="#about" class="nav-link">Обо мне</a></li>
-          <li><a href="#biography" class="nav-link">Биография</a></li>
+          <li><a href="#biography" class="nav-link">Особенности ботов</a></li>
           <li><a href="#projects" class="nav-link">Проекты</a></li>
-          <li><a href="#gallery" class="nav-link">Галерея</a></li>
           <li><a href="#skills" class="nav-link">Навыки</a></li>
           <li><a href="#contact" class="nav-link">Контакты</a></li>
         </ul>
@@ -508,30 +383,21 @@
     </div>
   </section>
   
-  <!-- Раздел "Биография" -->
+  <!-- Раздел "Особенности ботов" -->
   <section id="biography">
     <div class="container">
-      <h2>Профессиональный путь</h2>
+      <h2>Особенности ботов</h2>
       <div class="bio-content">
         <p>
-          Студент 3 курса Политехнического университета Санкт-Петербурга по специальности "Математика и компьютерные науки". Победитель заключительного этапа ВСОШ по информатике (2022, Краснодарский край).
-          Разработал алгоритм оптимизации логистических маршрутов с использованием методов теории графов. 
-          Сочетаю академические знания с практикой: участвую в разработке IT-решений для городских проектов Санкт-Петербурга и частных фирм (Росстандарт).
-        </p>
-        <p>
-          Ключевые достижения:
+          Я разрабатываю боты, которые не просто выполняют задачи, а делают это эффективно и с максимальной оптимизацией. Преимущества: 
         </p>
         <ul>
-          <li>• Система анализа транспортных потоков для "Цифрового Петербурга" (Python, OpenCV, нейросетевые модели)</li>
-          <li>• Прототип блокчейн-платформы для отслеживания медоборудования (Hyperledger, Node.js)</li>
-          <li>• Оптимизация алгоритмов обработки IoT-данных с частотой 10k запросов/сек (Apache Kafka, Rust)</li>
-          <li>• Являюсь тим-лидом в проекте с 500 разработчиками в компании "Т-Банк"</li>
+          <li>Обработка до 1000 запросов в минуту для крупных клиентов.</li>
+          <li>Интеграция с различными CRM-системами, включая популярных лидеров рынка.</li>
+          <li>Высокая отказоустойчивость и безопасность — использование лучших практик безопасности.</li>
+          <li>Боты адаптированы для работы с несколькими пользователями одновременно.</li>
+          <li>Аналитика и отчётность по всем взаимодействиям с пользователями.</li>
         </ul>
-        <p>
-          Технический стек: Python/C++/Rust, Machine Learning, распределённые системы. 
-          Сертифицированный AWS-архитектор. Активно участвую в хакатонах и open-source проектах, 
-          специализируюсь на задачах анализа больших данных и алгоритмической оптимизации. В совершенстве разбираюсь в физических процессах, готов выполнять сложные мультиграфические задачи.
-        </p>
       </div>
     </div>
   </section>
@@ -582,7 +448,7 @@ import random
             </div>
           </div>
         </div>
-        <!-- Проект 4: Финансовый трекер -->
+                <!-- Проект 4: Финансовый трекер -->
         <div class="project-card">
           <img alt="Финансовый трекер" loading="lazy" src="images/photo-1542744173-8e7e53415bb0.png">
           <div class="project-content">
@@ -634,32 +500,6 @@ import random
             </div>
           </div>
         </div>
-        <!-- Дополнительный проект 8: Система умного города -->
-        <div class="project-card">
-          <img alt="Умный город" loading="lazy" src="images/photo-1504384308090-c894fdcc538d">
-          <div class="project-content">
-            <h3>Система умного города</h3>
-            <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей с использованием облачных технологий.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Галерея -->
-  <section id="gallery">
-    <div class="container">
-      <h2>Галерея разработки</h2>
-      <div class="gallery-grid">
-        <img alt="Ночной Петербург" loading="lazy" src="images/photo-1523050854058-8df90110c9f1">
-        <img alt="Петербург мост" loading="lazy" src="images/photo-1529665253569-6d01c0eaf7b6">
-        <img alt="Современный Петербург" loading="lazy" src="images/photo-1593642632823-8f785ba67e45">
-        <img alt="Петербург закат" loading="lazy" src="images/photo-1556761175-5973dc0f32e7">
       </div>
     </div>
   </section>
@@ -720,8 +560,8 @@ import random
           <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
         </div>
         <div class="contact-form">
-          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" class="send-message-button">
-            Отправить сообщение по электронной почте GMail
+          <a href="mailto:ilya5950385@yandex.ru" class="send-message-button">
+            Отправить сообщение по электронной почте
           </a>
         </div>
       </div>
@@ -735,7 +575,7 @@ import random
     </div>
   </footer>
   
-  <!-- Всплывающий виджет опроса (справа внизу) -->
+  <!-- Всплывающее окно опроса -->
   <div id="surveyWidget">
     <span class="close-widget" id="widgetClose">&times;</span>
     <h3>Какой бот вам нужен?</h3>
@@ -746,19 +586,23 @@ import random
         <option value="поддержка">Поддержка клиентов</option>
         <option value="продажи">Продажи</option>
         <option value="маркетинг">Маркетинг</option>
+        <option value="все сразу">Все сразу</option>
       </select>
-      <label>2. В каком мессенджере использовать бота?</label>
-      <select name="platform" required>
+      <label>2. Какие функции должен выполнять бот?</label>
+      <select name="features" required>
         <option value="">Выберите вариант</option>
-        <option value="whatsapp">WhatsApp</option>
-        <option value="telegram">Telegram</option>
-        <option value="vk">VK</option>
+        <option value="автоматизация">Автоматизация процессов</option>
+        <option value="интеграция">Интеграция с CRM</option>
+        <option value="анализ">Анализ данных</option>
+        <option value="все сразу">Все сразу</option>
       </select>
-      <label>3. Требуется ли интеграция с CRM?</label>
-      <select name="crm" required>
+      <label>3. Какую дополнительную функциональность вы ожидаете?</label>
+      <select name="additional" required>
         <option value="">Выберите вариант</option>
-        <option value="да">Да</option>
-        <option value="нет">Нет</option>
+        <option value="поддержка мультиязычности">Поддержка мультиязычности</option>
+        <option value="интеграция с социальными сетями">Интеграция с соцсетями</option>
+        <option value="повышенная безопасность">Повышенная безопасность</option>
+        <option value="все сразу">Все сразу</option>
       </select>
       <label>4. Дополнительные пожелания:</label>
       <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
@@ -786,16 +630,30 @@ import random
       
       // Сбор данных формы
       var purpose = this.elements['purpose'].value;
-      var platform = this.elements['platform'].value;
-      var crm = this.elements['crm'].value;
+      var features = this.elements['features'].value;
+      var additional = this.elements['additional'].value;
       var notes = this.elements['notes'].value.trim();
       
+      // Получаем текущую дату и время в GMT+3
+      var currentDate = new Date();
+      currentDate.setHours(currentDate.getHours() + 3); // GMT+3
+      var formattedDate = currentDate.toLocaleString('ru-RU', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      });
+      
       // Формирование сообщения
-      var message = "Новый запрос по боту:\n";
+      var message = "Здравствуйте, отправляю следующие данные:\n\n";
       message += "1. Для чего нужен бот: " + purpose + "\n";
-      message += "2. Мессенджер: " + platform + "\n";
-      message += "3. Интеграция с CRM: " + crm + "\n";
-      message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n";
+      message += "2. Функции бота: " + features + "\n";
+      message += "3. Дополнительная функциональность: " + additional + "\n";
+      message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
+      message += "Дата и время заявки: " + formattedDate + "\n";
       
       // Формирование ссылки Click-to-Chat для WhatsApp (номер без плюса)
       var phoneNumber = "79819846577";
