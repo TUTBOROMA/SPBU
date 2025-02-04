@@ -920,29 +920,37 @@ import random
 
   // Обработка отправки формы виджета через WhatsApp
   document.getElementById('sendMessageBtn').addEventListener('click', function() {
-    var form = document.getElementById('surveyFormWidget');
-    var purpose = form.elements['purpose'].value;
-    var task = form.elements['task'].value;
-    var features = form.elements['features'].value;
-    var notes = form.elements['notes'].value.trim();
+  var form = document.getElementById('surveyFormWidget');
+  var purpose = form.elements['purpose'].value;
+  var task = form.elements['task'].value;
+  var features = form.elements['features'].value;
+  var notes = form.elements['notes'].value.trim();
 
-    // Формирование сообщения
-    var message = "Здравствуйте, отправляю данные по боту:\n";
-    message += "1. Для чего нужен бот: " + purpose + "\n";
-    message += "2. Задача бота: " + task + "\n";
-    message += "3. Функции: " + features + "\n";
-    message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n";
+  // Получение текущей даты и времени (GMT+3)
+  var date = new Date();
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
+  var formattedDate = date.toLocaleString('ru-RU', options); // Пример: "понедельник, 4 февраля 2025 г., 14:30:15 GMT+3"
 
-    // Формирование ссылки на WhatsApp
-    var phoneNumber = "79819846577";  // Ваш номер без плюса
-    var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+  // Формирование сообщения
+  var message = "Здравствуйте!\n\n";
+  message += "Вы отправили данные для бота:\n";
+  message += "1. Для чего нужен бот: " + purpose + "\n";
+  message += "2. Задача бота: " + task + "\n";
+  message += "3. Функции: " + features + "\n";
+  message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
+  message += "Дата и время отправки: " + formattedDate + "\n";
 
-    // Открываем ссылку в новой вкладке для отправки сообщения в WhatsApp
-    window.open(url, '_blank');
+  // Формирование ссылки на WhatsApp
+  var phoneNumber = "79819846577";  // Ваш номер без плюса
+  var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
 
-    // Скрываем виджет после отправки
-    document.getElementById('surveyWidget').style.display = 'none';
-  });
+  // Открываем ссылку в новой вкладке для отправки сообщения в WhatsApp
+  window.open(url, '_blank');
+
+  // Скрываем виджет после отправки
+  document.getElementById('surveyWidget').style.display = 'none';
+});
+
 </script>
 
 <!-- Стиль для виджета -->
@@ -957,6 +965,7 @@ import random
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     display: none;
+    z-index: 999;
   }
 
   .close-widget {
@@ -965,6 +974,11 @@ import random
     right: 10px;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  #surveyFormWidget {
+    display: flex;
+    flex-direction: column;
   }
 
   #surveyFormWidget label {
@@ -984,12 +998,12 @@ import random
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 205px;
   }
 
   #surveyFormWidget button:hover {
