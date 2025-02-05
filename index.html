@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta charset="utf-8">
   <meta property="og:title" content="SPBU Tutorials">
   <meta property="og:description" content="Илья Олегович - Профессиональный разработчик, математик, тестировщик">
   <meta property="og:image" content="https://tutboroma.github.io/SPBU/cover.jpg">
   <meta property="og:url" content="https://tutboroma.github.io/SPBU/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@RMudrec40251">
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Илья Олегович — Профессиональный разработчик</title>
-  <!-- Подключаем Google Fonts и Font Awesome -->
+  <!-- Подключение шрифтов и иконок -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dym6G+qMwyxCL/3QkxG9Zv0x+O7HZ8uP+ibPkz3LcJ4IFk6WqXutj+I33La9gM+U9eouu6oqZ4+JXG+fZlPZKg==" referrerpolicy="no-referrer" rel="stylesheet">
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet">
   <style>
-    /* Сброс базовых стилей */
+    /* Сброс стилей */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
@@ -22,11 +22,11 @@
       background: #f4f4f4;
       color: #333;
       scroll-behavior: smooth;
-      padding-top: 90px; /* Отступ для фиксированной шапки */
+      padding-top: 90px; /* Для фиксированной шапки */
     }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
-    
+
     /* Шапка сайта */
     header {
       background: rgba(44, 62, 80, 0.95);
@@ -48,7 +48,6 @@
       font-size: 28px;
       font-weight: 700;
     }
-    /* Кнопка для мобильного меню – три точки */
     .menu-toggle {
       display: none;
       background: none;
@@ -75,7 +74,7 @@
     }
     nav ul li a:hover { color: #18bc9c; }
     header::after { content: ""; display: table; clear: both; }
-    
+
     /* Hero Section */
     #hero {
       height: 100vh;
@@ -88,7 +87,7 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
     }
     .hero-content {
       position: relative;
@@ -102,12 +101,10 @@
     .hero-content h1 {
       font-size: 56px;
       margin-bottom: 20px;
-      animation: fadeInDown 1s ease-out;
     }
     .hero-content p {
       font-size: 24px;
       margin-bottom: 30px;
-      animation: fadeInUp 1s ease-out;
     }
     .hero-content a {
       background: #18bc9c;
@@ -116,19 +113,10 @@
       font-size: 18px;
       border-radius: 5px;
       transition: background 0.3s ease;
-      animation: fadeInUp 1.2s ease-out;
     }
     .hero-content a:hover { background: #159f7a; }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Основные секции */
+
+    /* Общие стили секций */
     section {
       padding: 100px 0;
     }
@@ -148,27 +136,20 @@
       margin: 10px auto;
       border-radius: 2px;
     }
-    .section-content {
+
+    /* Раздел "Обо мне" */
+    #about .section-content {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
     }
-    .section-content .text,
-    .section-content .image {
+    #about .section-content .image,
+    #about .section-content .text {
       flex: 1;
       padding: 20px;
       min-width: 300px;
     }
-    /* Отступ для текста в секции "Обо мне" (для больших экранов) */
-    #about .section-content .text { margin-left: 449px; }
-    .section-content .text p {
-      margin-bottom: 20px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    
-    /* Раздел "Обо мне" */
     #about .bio {
       max-width: 900px;
       margin: 20px auto;
@@ -176,8 +157,10 @@
       font-size: 18px;
       line-height: 1.8;
     }
-    #about .bio p { margin-bottom: 25px; }
-    
+    #about .bio p {
+      margin-bottom: 25px;
+    }
+
     /* Раздел "Биография" */
     #biography {
       background: #fff;
@@ -193,9 +176,11 @@
       text-align: justify;
       padding: 0 20px;
     }
-    #biography .bio-content p { margin-bottom: 25px; }
-    
-    /* Projects Section */
+    #biography .bio-content p {
+      margin-bottom: 25px;
+    }
+
+    /* Раздел "Проекты" */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -224,7 +209,9 @@
       margin-bottom: 15px;
       color: #18bc9c;
     }
-    .project-card p { margin-bottom: 15px; }
+    .project-card p {
+      margin-bottom: 15px;
+    }
     .code-block, .code-placeholder {
       background: #272822;
       color: #f8f8f2;
@@ -240,23 +227,52 @@
       text-align: center;
       font-style: italic;
     }
-    
-    /* Галерея */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 15px;
+
+    /* Раздел "Мои боты интегрируются с такими компаниями" */
+    #companies {
+      padding: 100px 0;
+      text-align: center;
     }
-    .gallery-grid img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
+    #companies h2 {
+      margin-bottom: 60px;
+      font-size: 42px;
+      color: #2c3e50;
+    }
+    .logo-slider-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+    .logo-slider {
+      display: flex;
       transition: transform 0.3s ease;
     }
-    .gallery-grid img:hover { transform: scale(1.05); }
-    
-    /* Навыки */
+    .logo-item {
+      margin: 0 15px;
+      flex: 0 0 auto;
+    }
+    .logo-item img {
+      width: 100%;
+      max-width: 250px;
+      object-fit: contain;
+    }
+    /* Стрелки слайдера */
+    #prevBtn, #nextBtn {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      font-size: 30px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    #prevBtn { left: 10px; }
+    #nextBtn { right: 10px; }
+
+    /* Раздел "Навыки" */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -273,121 +289,20 @@
       transition: transform 0.3s ease;
     }
     .skill-item:hover { transform: scale(1.1); }
-    /* Стили для контейнера с логотипами */
-#companies {
-  padding: 100px 0;
-  text-align: center;
-}
 
-#companies h2 {
-  margin-bottom: 60px;
-  font-size: 42px;
-  color: #2c3e50;
-}
-
-/* Ограничение для контейнера с логотипами */
-.logo-slider {
-  display: flex;
-  overflow: hidden;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  width: 100%; /* Ширина слайдера */
-  max-width: 1200px; /* Максимальная ширина слайдера */
-}
-
-/* Увеличиваем логотипы */
-.logo-item img {
-  width: 100%;
-  max-width: 300px; /* Логотипы в 2 раза больше */
-  object-fit: contain;
-}
-
-/* Чтобы логотипы не растягивались и прокручивались */
-.logo-item {
-  margin: 0 15px;
-  flex: 0 0 auto; /* Не растягиваем логотипы */
-  transition: transform 0.3s ease;
-}
-
-/* Контейнер для слайдера */
-/* Контейнер для слайдера */
-.logo-slider-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden; /* Скрываем лишние логотипы */
-}
-
-/* Ограничение количества логотипов в одном ряду */
-.logo-slider {
-  display: flex;
-  transition: transform 0.3s ease;
-  width: 100%;
-}
-
-/* Логотипы */
-.logo-item img {
-  width: 100%;
-  max-width: 250px; /* Логотипы увеличены */
-  object-fit: contain;
-}
-
-/* Логотипы будут скрыты в зависимости от видимости */
-.logo-item {
-  margin: 0 15px;
-  flex: 0 0 auto; /* Не растягиваем логотипы */
-  transition: transform 0.3s ease;
-}
-
-/* Стрелки */
-button {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-size: 30px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  transition: background 0.3s;
-}
-
-#prevBtn {
-  left: 10px;
-}
-
-#nextBtn {
-  right: 10px;
-}
-
-
-
-
-
-
-    /* Контакты */
+    /* Раздел "Контакты" */
     .contact-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
-    }
-    .contact-info {
-      flex: 1;
-      padding: 20px;
-      font-size: 18px;
+      gap: 30px;
     }
     .contact-info p { margin-bottom: 15px; }
     .contact-info a { color: #18bc9c; }
     .contact-form {
       flex: 1;
       padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     .contact-form input,
     .contact-form textarea {
@@ -409,72 +324,8 @@ button {
       transition: background 0.3s ease;
     }
     .contact-form button:hover { background: #159f7a; }
-    .send-message-button {
-      background: #007BFF;
-      color: #fff;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 5px;
-      display: inline-block;
-      text-align: center;
-      transition: background 0.3s ease;
-    }
-    .send-message-button:hover {
-      background: #0056b3;
-    }
-    
-    /* Футер */
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      text-align: center;
-      padding: 40px 0;
-    }
-    footer p { font-size: 16px; }
-    
-    /* Адаптивное меню для мобильных устройств */
-    @media(max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav {
-        display: none;
-        background: rgba(44, 62, 80, 0.95);
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-      }
-      nav.active {
-        display: block;
-      }
-      nav ul li {
-        display: block;
-        margin: 10px 0;
-      }
-      .hero-content h1 {
-        font-size: 32px;
-      }
-      .hero-content p {
-        font-size: 18px;
-      }
-      #about .section-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      #about .section-content .text {
-        margin: 20px 0 0 0;
-      }
-      #biography .bio-content {
-        max-width: 90%;
-        padding: 0 15px;
-      }
-    }
-    
-    /* Стили для всплывающего виджета опроса в правом нижнем углу */
+
+    /* Виджет опроса */
     #surveyWidget {
       position: fixed;
       bottom: 20px;
@@ -485,7 +336,7 @@ button {
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      padding: 15px 20px 20px 20px;
+      padding: 15px 20px 20px;
       z-index: 2000;
       display: none;
       font-size: 14px;
@@ -517,16 +368,80 @@ button {
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    #surveyWidget button:hover {
-      background: #159f7a;
-    }
-    #surveyWidget .close-widget {
+    #surveyWidget button:hover { background: #159f7a; }
+    .close-widget {
       position: absolute;
       top: 5px;
       right: 10px;
       cursor: pointer;
       font-size: 18px;
       color: #666;
+    }
+
+    /* Кнопка "Вам помочь?" */
+    #helpButton {
+      background-color: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 14px;
+      z-index: 9999;
+      border-radius: 5px;
+    }
+
+    /* Кнопка для Gmail */
+    #gmailButtonContainer {
+      text-align: center;
+      margin: 20px 0;
+    }
+    #sendGmailButton {
+      background-color: #db4437;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: inline-block;
+      width: 180px;
+      text-align: center;
+      text-decoration: none;
+    }
+    #sendGmailButton:hover {
+      background-color: #c1351d;
+    }
+
+    /* Футер */
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+    }
+    footer p { font-size: 16px; }
+
+    /* Адаптивные стили */
+    @media(max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav { display: none; }
+      nav.active {
+        display: block;
+        background: rgba(44, 62, 80, 0.95);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+      }
+      nav ul li { display: block; margin: 10px 0; }
+      .hero-content h1 { font-size: 32px; }
+      .hero-content p { font-size: 18px; }
+      #about .section-content { flex-direction: column; align-items: center; text-align: center; }
+      #biography .bio-content { max-width: 90%; padding: 0 15px; }
     }
   </style>
 </head>
@@ -535,44 +450,21 @@ button {
   <header>
     <div class="container">
       <div class="logo">Илья Олегович</div>
-      <button class="menu-toggle" id="menuToggle">
-        <i class="fas fa-ellipsis-v"></i>
-      </button>
+      <button class="menu-toggle" id="menuToggle"><i class="fas fa-ellipsis-v"></i></button>
       <nav id="navMenu">
         <ul>
-          <li><a href="#hero" class="nav-link">Главная</a></li>
-          <li><a href="#about" class="nav-link">Обо мне</a></li>
-          <li><a href="#biography" class="nav-link">Биография</a></li>
-          <li><a href="#projects" class="nav-link">Проекты</a></li>
-          <li><a href="#gallery" class="nav-link">Галерея</a></li>
-          <li><a href="#skills" class="nav-link">Навыки</a></li>
-          <li><a href="#contact" class="nav-link">Контакты</a></li>
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#biography">Биография</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#companies">Галерея</a></li>
+          <li><a href="#skills">Навыки</a></li>
+          <li><a href="#contact">Контакты</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  
-  <!-- Скрипты для мобильного меню -->
-  <script>
-    document.getElementById('menuToggle').addEventListener('click', function(e) {
-      e.stopPropagation();
-      document.getElementById('navMenu').classList.toggle('active');
-    });
-    var navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
-        document.getElementById('navMenu').classList.remove('active');
-      });
-    });
-    document.addEventListener('click', function(e) {
-      var navMenu = document.getElementById('navMenu');
-      var menuToggle = document.getElementById('menuToggle');
-      if (navMenu.classList.contains('active') && !e.target.closest('#navMenu') && !e.target.closest('#menuToggle')) {
-        navMenu.classList.remove('active');
-      }
-    });
-  </script>
-  
+
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content">
@@ -581,40 +473,33 @@ button {
       <a href="#about">Узнать обо мне</a>
     </div>
   </section>
-  
+
   <!-- Раздел "Обо мне" -->
   <section id="about">
     <div class="container section-content">
       <div class="image">
-        <img alt="Портрет" loading="lazy" src="images/photo-1504384308090-c894fdcc538d" style="width:100%; max-width:560px;">
+        <img src="images/photo-1504384308090-c894fdcc538d" alt="Портрет" loading="lazy" style="width:100%; max-width:560px;">
       </div>
       <div class="text">
         <h2>Обо мне</h2>
         <div class="bio">
-          <p>
-            Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям.
-          </p>
-          <p>
-            Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика.
-          </p>
+          <p>Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям.</p>
+          <p>Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика.</p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Раздел "Биография" -->
   <section id="biography">
-  <div class="container">
-    <h2>Особенности ботов</h2>
-    <div class="bio-content">
-      <p>
-        Мои Telegram-боты помогают компаниям значительно повысить эффективность их работы. Разработанные решения сокращают время обработки запросов на 50%, обеспечивают круглосуточную поддержку и могут обработать до 10,000 запросов в секунду. Боты интегрируются с CRM, позволяют автоматизировать маркетинговые процессы и встраиваются в существующие IT-системы. Внедрение ботов в бизнес процессы увеличивает конверсию на 30%, обеспечивая оперативность и удобство взаимодействия с клиентами.
-      </p>
+    <div class="container">
+      <h2>Особенности ботов</h2>
+      <div class="bio-content">
+        <p>Мои Telegram-боты помогают компаниям значительно повысить эффективность их работы. Разработанные решения сокращают время обработки запросов на 50%, обеспечивают круглосуточную поддержку и могут обработать до 10,000 запросов в секунду. Боты интегрируются с CRM, позволяют автоматизировать маркетинговые процессы и встраиваются в существующие IT-системы. Внедрение ботов в бизнес-процессы увеличивает конверсию на 30%, обеспечивая оперативность и удобство взаимодействия с клиентами.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  
   <!-- Раздел "Проекты" -->
   <section id="projects">
     <div class="container">
@@ -622,7 +507,7 @@ button {
       <div class="projects-grid">
         <!-- Проект 1: MEMORY TEST -->
         <div class="project-card">
-          <img alt="Memory Test" loading="lazy" src="images/photo-1518770660439-4636190af475.png">
+          <img src="images/photo-1518770660439-4636190af475.png" alt="Memory Test" loading="lazy">
           <div class="project-content">
             <h3>MEMORY TEST</h3>
             <p>Интерактивное приложение на Python с использованием Pygame для тренировки памяти. Включает несколько режимов и оригинальный интерфейс.</p>
@@ -632,219 +517,202 @@ import pygame
 import random
 # Инициализация экрана и логика теста</pre>
             </div>
-            <p>Полный код – на <a href="https://github.com/TUTBOROMA" style="color: #18bc9c;" target="_blank">GitHub</a>.</p>
+            <p>Полный код – на <a href="https://github.com/TUTBOROMA" target="_blank" style="color: #18bc9c;">GitHub</a>.</p>
           </div>
         </div>
         <!-- Проект 2: ТГ боты для 40REF -->
         <div class="project-card">
-          <img alt="Telegram Bots" loading="lazy" src="images/photo-1511367461989-f85a21fda167.png">
+          <img src="images/photo-1511367461989-f85a21fda167.png" alt="Telegram Bots" loading="lazy">
           <div class="project-content">
             <h3>ТГ боты для 40REF</h3>
             <p>Комплексное решение для автоматизации бизнес-процессов в Telegram. Боты объединены в единую систему для оптимизации рабочих процессов.</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
         <!-- Проект 3: SyncFiles -->
         <div class="project-card">
-          <img alt="SyncFiles" loading="lazy" src="images/photo-1581092795361-8aa453ecb09b.png">
+          <img src="images/photo-1581092795361-8aa453ecb09b.png" alt="SyncFiles" loading="lazy">
           <div class="project-content">
             <h3>SyncFiles</h3>
             <p>Приложение для автоматической синхронизации файлов между локальной папкой и облачным хранилищем Яндекс Диск. Фронтенд на React, бэкенд на Python (Flask).</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
         <!-- Проект 4: Финансовый трекер -->
         <div class="project-card">
-          <img alt="Финансовый трекер" loading="lazy" src="images/photo-1542744173-8e7e53415bb0.png">
+          <img src="images/photo-1542744173-8e7e53415bb0.png" alt="Финансовый трекер" loading="lazy">
           <div class="project-content">
             <h3>Финансовый трекер</h3>
             <p>Приложение для прогнозирования и управления финансами с использованием алгоритмов машинного обучения и интеграцией с внешними сервисами.</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
         <!-- Проект 5: Корпоративная система управления данными -->
         <div class="project-card">
-          <img alt="Система управления данными" loading="lazy" src="images/photo-1532614338840-5c77b6d6c7a5.png">
+          <img src="images/photo-1532614338840-5c77b6d6c7a5.png" alt="Система управления данными" loading="lazy">
           <div class="project-content">
             <h3>Корпоративная система управления данными</h3>
             <p>Платформа для обработки, анализа и визуализации больших данных с модулем предиктивной аналитики и интеграцией с различными источниками информации.</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
         <!-- Проект 6: IoT-решения для умного дома -->
         <div class="project-card">
-          <img alt="Умный дом" loading="lazy" src="images/photo-1560518883-ce09059eeffa.jpeg">
+          <img src="images/photo-1560518883-ce09059eeffa.jpeg" alt="Умный дом" loading="lazy">
           <div class="project-content">
             <h3>IoT-решения для умного дома</h3>
             <p>Система для дистанционного управления бытовой техникой и устройствами умного дома с мониторингом энергопотребления и обеспечения безопасности.</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
         <!-- Проект 7: Интеграционная платформа B2B -->
         <div class="project-card">
-          <img alt="Интеграционная платформа" loading="lazy" src="images/photo-1498050108023-c5249f4df085.png">
+          <img src="images/photo-1498050108023-c5249f4df085.png" alt="Интеграционная платформа" loading="lazy">
           <div class="project-content">
             <h3>Интеграционная платформа B2B</h3>
             <p>Система для объединения корпоративных информационных ресурсов с автоматизированным обменом данными, высокой безопасностью и масштабируемостью процессов.</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
-        <!-- Дополнительный проект 8: Система умного города -->
+        <!-- Проект 8: Система умного города -->
         <div class="project-card">
-          <img alt="Умный город" loading="lazy" src="images/photo-1504384308090-c894fdcc538d">
+          <img src="images/photo-1504384308090-c894fdcc538d" alt="Умный город" loading="lazy">
           <div class="project-content">
             <h3>Система умного города</h3>
             <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей с использованием облачных технологий.</p>
             <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank" style="color: inherit; text-decoration: none;">
-                Код проекта будет добавлен сюда: Посмотреть на GitHub
-              </a>
+              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
- <section id="companies">
+
+  <!-- Раздел "Мои боты интегрируются с такими компаниями" -->
+  <section id="companies">
+    <div class="container">
+      <h2>Мои боты интегрируются с такими компаниями</h2>
+      <div class="logo-slider-wrapper">
+        <div class="logo-slider">
+          <div class="logo-item">
+            <a href="https://www.sberbank.ru" target="_blank">
+              <img src="images/sber-logo.jpg" alt="Сбер" loading="lazy">
+            </a>
+          </div>
+          <div class="logo-item">
+            <a href="https://alfabank.ru" target="_blank">
+              <img src="images/alfa-logo.png" alt="Альфа" loading="lazy">
+            </a>
+          </div>
+          <div class="logo-item">
+            <a href="https://www.rossiya-bank.ru" target="_blank">
+              <img src="images/rossiya-logo.png" alt="Россия" loading="lazy">
+            </a>
+          </div>
+          <div class="logo-item">
+            <a href="https://www.tinkoff.ru" target="_blank">
+              <img src="images/tinkoff-logo.png" alt="Тинькофф" loading="lazy">
+            </a>
+          </div>
+          <div class="logo-item">
+            <div class="logo-item">
+  <a href="https://www.psbank.ru" target="_blank">
+    <img src="images/psb-logo.png" alt="ПСБ" loading="lazy">
+  </a>
+</div>
+<div class="logo-item">
+  <a href="https://www.vtb.ru" target="_blank">
+    <img src="images/vtb-logo.png" alt="ВТБ" loading="lazy">
+  </a>
+</div>
+<div class="logo-item">
+  <a href="https://www.rosbank.ru" target="_blank">
+    <img src="images/rosbank-logo.png" alt="Росбанк" loading="lazy">
+  </a>
+</div>
+<div class="logo-item">
+  <a href="https://www.rosstat.gov.ru" target="_blank">
+    <img src="images/rosstat.jpg" alt="Росстат" loading="lazy">
+  </a>
+</div>
+<div class="logo-item">
+  <a href="https://moscow.mts.ru" target="_blank">
+    <img src="images/mts-logo.png" alt="МТС" loading="lazy">
+  </a>
+</div>
+<div class="logo-item">
+  <a href="https://raiffeisen.ru" target="_blank">
+    <img src="images/raiffeisen-logo.png" alt="Райффайзен" loading="lazy">
+  </a>
+</div>
+</div> <!-- Конец слайдера логотипов -->
+
+<!-- Стрелки для слайдера -->
+<button id="prevBtn" class="prev-btn">‹</button>
+<button id="nextBtn" class="next-btn">›</button>
+
+</div> <!-- Контейнер для слайдера -->
+</section>
+
+<!-- Навыки -->
+<section id="skills">
   <div class="container">
-    <h2>Мои боты интегрируются с такими компаниями</h2>
-    <div class="logo-slider-wrapper">
-      <div class="logo-slider">
-        <!-- Логотипы с ссылками -->
-        <div class="logo-item">
-          <a href="https://www.sberbank.ru" target="_blank">
-            <img src="images/sber-logo.jpg" alt="Сбер" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://alfabank.ru" target="_blank">
-            <img src="images/alfa-logo.png" alt="Альфа" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://www.rossiya-bank.ru" target="_blank">
-            <img src="images/rossiya-logo.png" alt="Россия" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://www.tinkoff.ru" target="_blank">
-            <img src="images/tinkoff-logo.png" alt="Тинькофф" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://www.psbank.ru" target="_blank">
-            <img src="images/psb-logo.png" alt="ПСБ" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://www.vtb.ru" target="_blank">
-            <img src="images/vtb-logo.png" alt="ВТБ" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://www.rosbank.ru" target="_blank">
-            <img src="images/rosbank-logo.png" alt="Росбанк" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://www.rosstat.gov.ru" target="_blank">
-            <img src="images/rosstat.jpg" alt="Сбербанк" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://moscow.mts.ru" target="_blank">
-            <img src="images/mts-logo.png" alt="МТС" loading="lazy">
-          </a>
-        </div>
-        <div class="logo-item">
-          <a href="https://raiffeisen.ru" target="_blank">
-            <img src="images/raiffeisen-logo.png" alt="Райффайзен" loading="lazy">
-          </a>
-        </div>
-      </div>
+    <h2>Навыки и технологии</h2>
+    <div class="skills-grid">
+      <div class="skill-item">HTML5</div>
+      <div class="skill-item">CSS3 / SASS</div>
+      <div class="skill-item">JavaScript (ES6+)</div>
+      <div class="skill-item">React / Redux</div>
+      <div class="skill-item">Angular</div>
+      <div class="skill-item">Vue.js</div>
+      <div class="skill-item">Node.js</div>
+      <div class="skill-item">Express</div>
+      <div class="skill-item">TypeScript</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">Django</div>
+      <div class="skill-item">Flask</div>
+      <div class="skill-item">SQL / PostgreSQL</div>
+      <div class="skill-item">NoSQL / MongoDB</div>
+      <div class="skill-item">Java</div>
+      <div class="skill-item">C/C++</div>
+      <div class="skill-item">C# / ASP.NET</div>
+      <div class="skill-item">Git & GitHub</div>
+      <div class="skill-item">Docker</div>
+      <div class="skill-item">Kubernetes</div>
+      <div class="skill-item">Linux (Ubuntu, CentOS)</div>
+      <div class="skill-item">RESTful API</div>
+      <div class="skill-item">GraphQL</div>
+      <div class="skill-item">Agile / Scrum</div>
+      <div class="skill-item">CI/CD</div>
+      <div class="skill-item">Machine Learning</div>
+      <div class="skill-item">Data Analysis</div>
+      <div class="skill-item">Cloud Services</div>
+      <div class="skill-item">Firebase</div>
+      <div class="skill-item">Physics Simulations</div>
+      <div class="skill-item">Algorithm Design</div>
+      <div class="skill-item">Data Visualization</div>
+      <div class="skill-item">Big Data</div>
+      <div class="skill-item">Cybersecurity</div>
+      <div class="skill-item">DevOps</div>
+      <div class="skill-item">Ruby on Rails</div>
     </div>
-    <!-- Стрелки -->
-    <button class="prev-btn" id="prevBtn">‹</button>
-    <button class="next-btn" id="nextBtn">›</button>
   </div>
 </section>
 
-
-
-
-
-
-  <!-- Раздел "Навыки" -->
-  <section id="skills">
-    <div class="container">
-      <h2>Навыки и технологии</h2>
-      <div class="skills-grid">
-        <div class="skill-item">HTML5</div>
-        <div class="skill-item">CSS3 / SASS</div>
-        <div class="skill-item">JavaScript (ES6+)</div>
-        <div class="skill-item">React / Redux</div>
-        <div class="skill-item">Angular</div>
-        <div class="skill-item">Vue.js</div>
-        <div class="skill-item">Node.js</div>
-        <div class="skill-item">Express</div>
-        <div class="skill-item">TypeScript</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">Django</div>
-        <div class="skill-item">Flask</div>
-        <div class="skill-item">SQL / PostgreSQL</div>
-        <div class="skill-item">NoSQL / MongoDB</div>
-        <div class="skill-item">Java</div>
-        <div class="skill-item">C/C++</div>
-        <div class="skill-item">C# / ASP.NET</div>
-        <div class="skill-item">Git &amp; GitHub</div>
-        <div class="skill-item">Docker</div>
-        <div class="skill-item">Kubernetes</div>
-        <div class="skill-item">Linux (Ubuntu, CentOS)</div>
-        <div class="skill-item">RESTful API</div>
-        <div class="skill-item">GraphQL</div>
-        <div class="skill-item">Agile / Scrum</div>
-        <div class="skill-item">CI/CD</div>
-        <div class="skill-item">Machine Learning</div>
-        <div class="skill-item">Data Analysis</div>
-        <div class="skill-item">Cloud Services</div>
-        <div class="skill-item">Firebase</div>
-        <div class="skill-item">Physics Simulations</div>
-        <div class="skill-item">Algorithm Design</div>
-        <div class="skill-item">Data Visualization</div>
-        <div class="skill-item">Big Data</div>
-        <div class="skill-item">Cybersecurity</div>
-        <div class="skill-item">DevOps</div>
-        <div class="skill-item">Ruby on Rails</div>
-      </div>
-    </div>
-  </section>
-  
-<!-- Раздел "Контакты" -->
+<!-- Раздел Контакты -->
 <section id="contact">
   <div class="container">
     <h2>Контакты</h2>
@@ -854,12 +722,20 @@ import random
         <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
         <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
       </div>
+      <div class="contact-form">
+        <form action="submit_form.php" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="email" name="email" placeholder="Ваш email" required>
+          <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+          <button type="submit">Отправить сообщение</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Виджет опроса, скрытый изначально -->
-<div id="surveyWidget" style="display: none;">
+<!-- Виджет опроса -->
+<div id="surveyWidget">
   <span class="close-widget" id="widgetClose">&times;</span>
   <h3>Какой бот вам нужен?</h3>
   <form id="surveyFormWidget">
@@ -898,9 +774,92 @@ import random
 
     <label>4. Дополнительные пожелания:</label>
     <textarea name="notes" rows="3" placeholder="Ваш ответ"></textarea>
-
-    <!-- Кнопка отправки -->
     <button type="button" id="sendMessageBtn">Отправить в WhatsApp</button>
+  </form>
+</div>
+
+<!-- Кнопка "Вам помочь?" -->
+<button id="helpButton">Вам помочь?</button>
+
+<!-- Кнопка для отправки сообщения через Gmail -->
+<div id="gmailButtonContainer">
+  <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" id="sendGmailButton">Отправить сообщение через Gmail</a>
+</div>
+
+<!-- Футер -->
+<footer>
+  <div class="container">
+    <p>© 2025 Илья Олегович. Все права защищены.</p>
+  </div>
+</footer>
+
+<!-- Скрипты -->
+<script>
+  // Мобильное меню
+  document.getElementById('menuToggle').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('navMenu').classList.toggle('active');
+  });
+  document.addEventListener('click', function(e) {
+    if (document.getElementById('navMenu').classList.contains('active') &&
+        !e.target.closest('#navMenu') && !e.target.closest('#menuToggle')) {
+      document.getElementById('navMenu').classList.remove('active');
+    }
+  });
+
+  // Виджет "Вам помочь?" – показать/скрыть
+  document.getElementById('helpButton').addEventListener('click', function() {
+    document.getElementById('surveyWidget').style.display = 'block';
+    this.style.display = 'none';
+  });
+  document.getElementById('widgetClose').addEventListener('click', function() {
+    document.getElementById('surveyWidget').style.display = 'none';
+    document.getElementById('helpButton').style.display = 'block';
+  });
+
+  // Отправка данных через WhatsApp
+  document.getElementById('sendMessageBtn').addEventListener('click', function() {
+    var form = document.getElementById('surveyFormWidget');
+    var purpose = form.elements['purpose'].value;
+    var task = form.elements['task'].value;
+    var features = form.elements['features'].value;
+    var notes = form.elements['notes'].value.trim();
+
+    // Получение текущей даты и времени (GMT+3)
+    var date = new Date();
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
+    var formattedDate = date.toLocaleString('ru-RU', options);
+
+    var message = "Здравствуйте!\n\n";
+    message += "Вы отправили данные для бота:\n";
+    message += "1. Для чего нужен бот: " + purpose + "\n";
+    message += "2. Задача бота: " + task + "\n";
+    message += "3. Функции: " + features + "\n";
+    message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
+    message += "Дата и время отправки: " + formattedDate + "\n";
+
+    var phoneNumber = "79819846577"; // Ваш номер (без плюса)
+    var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+
+    window.open(url, '_blank');
+    document.getElementById('surveyWidget').style.display = 'none';
+    document.getElementById('helpButton').style.display = 'block';
+  });
+
+  // Слайдер логотипов компаний
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const slider = document.querySelector('.logo-slider');
+  prevBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+  nextBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
+              utton type="button" id="sendMessageBtn">Отправить в WhatsApp</button>
   </form>
 </div>
 
