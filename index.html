@@ -15,21 +15,31 @@
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet">
   <style>
     /* Сброс стилей */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       background: #f4f4f4;
       color: #333;
       scroll-behavior: smooth;
-      padding-top: 90px; /* Для фиксированной шапки */
+      padding-top: 90px; /* Отступ сверху, чтобы шапка не перекрывала секции */
     }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
 
-    /* Шапка сайта */
+    /* Шапка сайта (header) */
     header {
-      background: rgba(44, 62, 80, 0.95);
+      /* Сделаем красивый градиент */
+      background: linear-gradient(90deg, #2c3e50, #34495e);
       color: #fff;
       padding: 20px 0;
       position: fixed;
@@ -44,7 +54,7 @@
       margin: 0 auto;
       position: relative;
     }
-    header .logo {
+    .logo {
       font-size: 28px;
       font-weight: 700;
     }
@@ -72,39 +82,42 @@
       font-weight: 500;
       transition: color 0.3s ease;
     }
-    nav ul li a:hover { color: #18bc9c; }
-    header::after { content: ""; display: table; clear: both; }
+    nav ul li a:hover {
+      color: #18bc9c;
+    }
+    header::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
     /* Hero Section */
     #hero {
       height: 100vh;
-      background: url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
+      /* Градиент поверх фоновой картинки */
+      background: linear-gradient(rgba(44,62,80,0.6), rgba(44,62,80,0.6)), 
+                  url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
       position: relative;
-    }
-    #hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
     }
     .hero-content {
       position: relative;
-      z-index: 2;
       text-align: center;
       top: 50%;
       transform: translateY(-50%);
       color: #fff;
       padding: 0 20px;
+      max-width: 700px;
+      margin: 0 auto;
     }
     .hero-content h1 {
       font-size: 56px;
       margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
     .hero-content p {
       font-size: 24px;
       margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
     .hero-content a {
       background: #18bc9c;
@@ -112,9 +125,13 @@
       padding: 15px 30px;
       font-size: 18px;
       border-radius: 5px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
     }
-    .hero-content a:hover { background: #159f7a; }
+    .hero-content a:hover {
+      background: #159f7a;
+      transform: scale(1.05);
+    }
 
     /* Общие стили секций */
     section {
@@ -133,7 +150,7 @@
       height: 4px;
       background: #18bc9c;
       display: block;
-      margin: 10px auto;
+      margin: 10px auto 0 auto;
       border-radius: 2px;
     }
 
@@ -142,7 +159,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
     }
     #about .section-content .image,
     #about .section-content .text {
@@ -150,9 +167,18 @@
       padding: 20px;
       min-width: 300px;
     }
+    #about .section-content .image {
+      display: flex;
+      justify-content: center;
+    }
+    #about .section-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
     #about .bio {
       max-width: 900px;
-      margin: 20px auto;
+      margin: 20px auto 0 auto;
       text-align: justify;
       font-size: 18px;
       line-height: 1.8;
@@ -164,7 +190,6 @@
     /* Раздел "Биография" */
     #biography {
       background: #fff;
-      padding: 60px 0;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
     }
@@ -202,7 +227,7 @@
       height: 200px;
       object-fit: cover;
     }
-    .project-card .project-content {
+    .project-content {
       padding: 20px;
     }
     .project-card h3 {
@@ -212,7 +237,8 @@
     .project-card p {
       margin-bottom: 15px;
     }
-    .code-block, .code-placeholder {
+    .code-block,
+    .code-placeholder {
       background: #272822;
       color: #f8f8f2;
       padding: 15px;
@@ -227,55 +253,74 @@
       text-align: center;
       font-style: italic;
     }
+    .code-placeholder a {
+      color: #18bc9c;
+    }
 
-    /* Раздел "Мои боты интегрируются с такими компаниями" */
+    /* Раздел "Мои боты интегрируются с такими компаниями" (Slider) */
     #companies {
-      padding: 100px 0;
+      background: #fdfdfd;
       text-align: center;
     }
-    #companies h2 {
-      margin-bottom: 60px;
-      font-size: 42px;
-      color: #2c3e50;
-    }
     .logo-slider-wrapper {
+      width: 840px; /* Жесткая ширина, чтобы влезало ровно 3 логотипа */
+      max-width: 100%;
       overflow: hidden;
+      margin: 0 auto;
       position: relative;
     }
     .logo-slider {
       display: flex;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
+      will-change: transform;
     }
     .logo-item {
-      margin: 0 15px;
       flex: 0 0 auto;
+      width: 250px; /* Ширина одного лого */
+      margin: 0 15px; /* Чтобы центровать и не прижималось */
     }
     .logo-item img {
       width: 100%;
-      max-width: 250px;
       object-fit: contain;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 5px;
     }
     /* Стрелки слайдера */
     #prevBtn, #nextBtn {
       background: rgba(0, 0, 0, 0.5);
       color: #fff;
       border: none;
-      padding: 10px;
-      font-size: 30px;
+      width: 40px;
+      height: 40px;
+      font-size: 25px;
       cursor: pointer;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       z-index: 10;
       transition: background 0.3s;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    #prevBtn { left: 10px; }
-    #nextBtn { right: 10px; }
+    #prevBtn:hover, #nextBtn:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    #prevBtn {
+      left: -50px; /* Чуть вынесем за контейнер */
+    }
+    #nextBtn {
+      right: -50px;
+    }
 
     /* Раздел "Навыки" */
+    #skills {
+      background: #fafafa;
+    }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 20px;
     }
     .skill-item {
@@ -287,10 +332,16 @@
       font-size: 16px;
       font-weight: bold;
       transition: transform 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .skill-item:hover { transform: scale(1.1); }
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
 
     /* Раздел "Контакты" */
+    #contact {
+      background: #fff;
+    }
     .contact-container {
       display: flex;
       flex-wrap: wrap;
@@ -298,32 +349,17 @@
       align-items: flex-start;
       gap: 30px;
     }
-    .contact-info p { margin-bottom: 15px; }
-    .contact-info a { color: #18bc9c; }
-    .contact-form {
-      flex: 1;
-      padding: 20px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 15px;
+    .contact-info p {
       margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .contact-form button {
-      background: #18bc9c;
-      color: #fff;
-      border: none;
-      padding: 15px 30px;
       font-size: 18px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
     }
-    .contact-form button:hover { background: #159f7a; }
+    .contact-info a {
+      color: #18bc9c;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    /* Удалили форму и заменили на ссылку в GMailButtonContainer */
 
     /* Виджет опроса */
     #surveyWidget {
@@ -345,11 +381,13 @@
       margin-bottom: 10px;
       text-align: center;
       color: #18bc9c;
+      font-size: 18px;
     }
     #surveyWidget label {
       margin-bottom: 5px;
       font-weight: bold;
       display: block;
+      font-size: 14px;
     }
     #surveyWidget select,
     #surveyWidget textarea,
@@ -368,7 +406,9 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    #surveyWidget button:hover { background: #159f7a; }
+    #surveyWidget button:hover {
+      background: #159f7a;
+    }
     .close-widget {
       position: absolute;
       top: 5px;
@@ -382,7 +422,7 @@
     #helpButton {
       background-color: #007bff;
       color: white;
-      padding: 5px 10px;
+      padding: 10px 15px;
       border: none;
       position: fixed;
       bottom: 20px;
@@ -390,9 +430,15 @@
       font-size: 14px;
       z-index: 9999;
       border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+    #helpButton:hover {
+      background-color: #0056b3;
     }
 
-    /* Кнопка для Gmail */
+    /* Кнопка для отправки сообщения через Gmail */
     #gmailButtonContainer {
       text-align: center;
       margin: 20px 0;
@@ -400,18 +446,19 @@
     #sendGmailButton {
       background-color: #db4437;
       color: white;
-      padding: 10px 20px;
+      padding: 14px 24px;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
-      display: inline-block;
-      width: 180px;
       text-align: center;
       text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     #sendGmailButton:hover {
       background-color: #c1351d;
+      transform: translateY(-2px);
     }
 
     /* Футер */
@@ -421,15 +468,21 @@
       text-align: center;
       padding: 40px 0;
     }
-    footer p { font-size: 16px; }
+    footer p {
+      font-size: 16px;
+    }
 
     /* Адаптивные стили */
     @media(max-width: 768px) {
-      .menu-toggle { display: block; }
-      nav { display: none; }
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        display: none;
+      }
       nav.active {
         display: block;
-        background: rgba(44, 62, 80, 0.95);
+        background: linear-gradient(90deg, #2c3e50, #34495e);
         position: absolute;
         top: 70px;
         left: 0;
@@ -437,11 +490,31 @@
         text-align: center;
         padding: 20px 0;
       }
-      nav ul li { display: block; margin: 10px 0; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-content p { font-size: 18px; }
-      #about .section-content { flex-direction: column; align-items: center; text-align: center; }
-      #biography .bio-content { max-width: 90%; padding: 0 15px; }
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+      }
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      .hero-content p {
+        font-size: 18px;
+      }
+      #about .section-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      #biography .bio-content {
+        max-width: 90%;
+        padding: 0 15px;
+      }
+      .logo-slider-wrapper {
+        width: 100% !important; /* Растягиваем, чтобы не ломалось на узких экранах */
+      }
+      #prevBtn, #nextBtn {
+        display: none; /* Спрятать стрелки на очень маленьких экранах при желании */
+      }
     }
   </style>
 </head>
@@ -478,13 +551,13 @@
   <section id="about">
     <div class="container section-content">
       <div class="image">
-        <img src="images/photo-1504384308090-c894fdcc538d" alt="Портрет" loading="lazy" style="width:100%; max-width:560px;">
+        <img src="images/photo-1504384308090-c894fdcc538d" alt="Портрет" loading="lazy">
       </div>
       <div class="text">
         <h2>Обо мне</h2>
         <div class="bio">
-          <p>Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям.</p>
-          <p>Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика.</p>
+          <p>Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям. Я победитель Закла ВсОШ по информатике.</p>
+          <p>Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика. Моя цель – делать мир удобнее за счёт современных технологий.</p>
         </div>
       </div>
     </div>
@@ -512,10 +585,11 @@
             <h3>MEMORY TEST</h3>
             <p>Интерактивное приложение на Python с использованием Pygame для тренировки памяти. Включает несколько режимов и оригинальный интерфейс.</p>
             <div class="code-block">
-              <pre># Пример кода проекта MEMORY TEST
+<pre># Пример кода проекта MEMORY TEST
 import pygame
 import random
-# Инициализация экрана и логика теста</pre>
+# Инициализация экрана и логика теста
+</pre>
             </div>
             <p>Полный код – на <a href="https://github.com/TUTBOROMA" target="_blank" style="color: #18bc9c;">GitHub</a>.</p>
           </div>
@@ -569,7 +643,7 @@ import random
           <img src="images/photo-1560518883-ce09059eeffa.jpeg" alt="Умный дом" loading="lazy">
           <div class="project-content">
             <h3>IoT-решения для умного дома</h3>
-            <p>Система для дистанционного управления бытовой техникой и устройствами умного дома с мониторингом энергопотребления и обеспечения безопасности.</p>
+            <p>Система для дистанционного управления бытовой техникой и устройствами умного дома с мониторингом энергопотребления и повышенной безопасностью.</p>
             <div class="code-placeholder">
               <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
@@ -591,7 +665,7 @@ import random
           <img src="images/photo-1504384308090-c894fdcc538d" alt="Умный город" loading="lazy">
           <div class="project-content">
             <h3>Система умного города</h3>
-            <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей с использованием облачных технологий.</p>
+            <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей при помощи облачных технологий.</p>
             <div class="code-placeholder">
               <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
@@ -601,12 +675,12 @@ import random
     </div>
   </section>
 
-  <!-- Раздел "Мои боты интегрируются с такими компаниями" -->
+  <!-- Раздел "Мои боты интегрируются с такими компаниями" (Слайдер) -->
   <section id="companies">
     <div class="container">
       <h2>Мои боты интегрируются с такими компаниями</h2>
       <div class="logo-slider-wrapper">
-        <div class="logo-slider">
+        <div class="logo-slider" id="logoSlider">
           <div class="logo-item">
             <a href="https://www.sberbank.ru" target="_blank">
               <img src="images/sber-logo.jpg" alt="Сбер" loading="lazy">
@@ -644,7 +718,7 @@ import random
           </div>
           <div class="logo-item">
             <a href="https://www.rosstat.gov.ru" target="_blank">
-              <img src="images/rosstat.jpg" alt="Сбербанк" loading="lazy">
+              <img src="images/rosstat.jpg" alt="Росстат" loading="lazy">
             </a>
           </div>
           <div class="logo-item">
@@ -719,13 +793,11 @@ import random
           <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
           <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
         </div>
-        <div class="contact-form">
-          <form action="submit_form.php" method="post">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="email" name="email" placeholder="Ваш email" required>
-            <textarea name="message" placeholder="Ваше сообщение" required></textarea>
-            <button type="submit">Отправить сообщение</button>
-          </form>
+        <!-- Ссылка на GMail вместо формы -->
+        <div id="gmailButtonContainer">
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" id="sendGmailButton">
+            Отправить сообщение в Gmail
+          </a>
         </div>
       </div>
     </div>
@@ -743,7 +815,7 @@ import random
         <option value="продажи">Продажи</option>
         <option value="маркетинг">Маркетинг</option>
         <option value="анализ">Анализ данных</option>
-        <option value="обслуживание">Обслуживание и техническая поддержка</option>
+        <option value="обслуживание">Обслуживание и поддержка</option>
         <option value="все сразу">Все сразу</option>
       </select>
       <label>2. Какую задачу должен решать бот?</label>
@@ -775,11 +847,6 @@ import random
   <!-- Кнопка "Вам помочь?" -->
   <button id="helpButton">Вам помочь?</button>
 
-  <!-- Кнопка для отправки сообщения через Gmail -->
-  <div id="gmailButtonContainer">
-    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" id="sendGmailButton">Отправить сообщение через Gmail</a>
-  </div>
-
   <!-- Футер -->
   <footer>
     <div class="container">
@@ -790,41 +857,63 @@ import random
   <!-- Скрипты -->
   <script>
     // Мобильное меню
-    document.getElementById('menuToggle').addEventListener('click', function(e) {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      document.getElementById('navMenu').classList.toggle('active');
+      navMenu.classList.toggle('active');
     });
+
     document.addEventListener('click', function(e) {
-      if (document.getElementById('navMenu').classList.contains('active') &&
-          !e.target.closest('#navMenu') && !e.target.closest('#menuToggle')) {
-        document.getElementById('navMenu').classList.remove('active');
+      if (navMenu.classList.contains('active') &&
+          !e.target.closest('#navMenu') &&
+          !e.target.closest('#menuToggle')) {
+        navMenu.classList.remove('active');
       }
     });
 
     // Виджет "Вам помочь?" – показать/скрыть
-    document.getElementById('helpButton').addEventListener('click', function() {
-      document.getElementById('surveyWidget').style.display = 'block';
-      this.style.display = 'none';
+    const helpButton = document.getElementById('helpButton');
+    const surveyWidget = document.getElementById('surveyWidget');
+    const widgetClose = document.getElementById('widgetClose');
+
+    helpButton.addEventListener('click', function() {
+      surveyWidget.style.display = 'block';
+      helpButton.style.display = 'none';
     });
-    document.getElementById('widgetClose').addEventListener('click', function() {
-      document.getElementById('surveyWidget').style.display = 'none';
-      document.getElementById('helpButton').style.display = 'block';
+
+    widgetClose.addEventListener('click', function() {
+      surveyWidget.style.display = 'none';
+      helpButton.style.display = 'block';
     });
 
     // Отправка данных через WhatsApp
-    document.getElementById('sendMessageBtn').addEventListener('click', function() {
-      var form = document.getElementById('surveyFormWidget');
-      var purpose = form.elements['purpose'].value;
-      var task = form.elements['task'].value;
-      var features = form.elements['features'].value;
-      var notes = form.elements['notes'].value.trim();
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+
+    sendMessageBtn.addEventListener('click', function() {
+      const form = document.getElementById('surveyFormWidget');
+      const purpose = form.elements['purpose'].value;
+      const task = form.elements['task'].value;
+      const features = form.elements['features'].value;
+      const notes = form.elements['notes'].value.trim();
 
       // Получение текущей даты и времени (GMT+3)
-      var date = new Date();
-      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short', timeZone: 'Europe/Moscow' };
-      var formattedDate = date.toLocaleString('ru-RU', options);
+      const date = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZoneName: 'short',
+        timeZone: 'Europe/Moscow'
+      };
+      const formattedDate = date.toLocaleString('ru-RU', options);
 
-      var message = "Здравствуйте!\n\n";
+      let message = "Здравствуйте!\n\n";
       message += "Вы отправили данные для бота:\n";
       message += "1. Для чего нужен бот: " + purpose + "\n";
       message += "2. Задача бота: " + task + "\n";
@@ -832,23 +921,37 @@ import random
       message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
       message += "Дата и время отправки: " + formattedDate + "\n";
 
-      var phoneNumber = "79819846577"; // Ваш номер (без плюса)
-      var url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+      const phoneNumber = "79819846577"; // Ваш номер (без плюса)
+      const url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
 
       window.open(url, '_blank');
-      document.getElementById('surveyWidget').style.display = 'none';
-      document.getElementById('helpButton').style.display = 'block';
+      surveyWidget.style.display = 'none';
+      helpButton.style.display = 'block';
     });
 
-    // Слайдер логотипов компаний
+    // Слайдер логотипов (показать 3, всего 10)
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    const slider = document.querySelector('.logo-slider');
-    prevBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: -300, behavior: 'smooth' });
-    });
+    const slider = document.getElementById('logoSlider');
+    const sliderItems = slider.querySelectorAll('.logo-item');
+
+    let currentIndex = 0;
+    const visibleItems = 3;
+    const itemWidth = 280; // 250px + 15px*2 (учитываем ширину и отступы)
+    const maxIndex = sliderItems.length - visibleItems; // 10 - 3 = 7
+
     nextBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: 300, behavior: 'smooth' });
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+      }
     });
   </script>
 </body>
