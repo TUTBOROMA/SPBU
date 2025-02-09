@@ -10,9 +10,11 @@
   <meta name="twitter:site" content="@RMudrec40251">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Илья Олегович — Профессиональный разработчик</title>
+  
   <!-- Подключение шрифтов и иконок -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet">
+  
   <style>
     /* Сброс стилей */
     * {
@@ -20,14 +22,16 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       background: #f4f4f4;
       color: #333;
       scroll-behavior: smooth;
-      padding-top: 90px; /* Отступ сверху, чтобы шапка не перекрывала секции */
+      padding-top: 90px; /* отступ сверху, чтобы фиксированный header не перекрывал секции */
     }
+    
     a {
       text-decoration: none;
       color: inherit;
@@ -38,7 +42,6 @@
 
     /* Шапка сайта (header) */
     header {
-      /* Сделаем красивый градиент */
       background: linear-gradient(90deg, #2c3e50, #34495e);
       color: #fff;
       padding: 20px 0;
@@ -46,7 +49,7 @@
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     .container {
       width: 90%;
@@ -94,25 +97,27 @@
     /* Hero Section */
     #hero {
       height: 100vh;
-      /* Градиент поверх фоновой картинки */
-      background: linear-gradient(rgba(44,62,80,0.6), rgba(44,62,80,0.6)), 
-                  url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
+      background: linear-gradient(
+        rgba(44, 62, 80, 0.6),
+        rgba(44, 62, 80, 0.6)
+      ),
+      url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
       position: relative;
     }
     .hero-content {
-      position: relative;
-      text-align: center;
+      position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
       color: #fff;
       padding: 0 20px;
       max-width: 700px;
-      margin: 0 auto;
     }
     .hero-content h1 {
       font-size: 56px;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
     .hero-content p {
       font-size: 24px;
@@ -150,7 +155,7 @@
       height: 4px;
       background: #18bc9c;
       display: block;
-      margin: 10px auto 0 auto;
+      margin: 10px auto 0;
       border-radius: 2px;
     }
 
@@ -161,17 +166,17 @@
       align-items: center;
       justify-content: space-around;
     }
-    #about .section-content .image,
-    #about .section-content .text {
+    #about .image,
+    #about .text {
       flex: 1;
       padding: 20px;
       min-width: 300px;
     }
-    #about .section-content .image {
+    #about .image {
       display: flex;
       justify-content: center;
     }
-    #about .section-content img {
+    #about .image img {
       max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -206,7 +211,7 @@
     }
 
     /* Раздел "Проекты" */
-    .projects-grid {
+    #projects .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
@@ -227,7 +232,7 @@
       height: 200px;
       object-fit: cover;
     }
-    .project-content {
+    .project-card .project-content {
       padding: 20px;
     }
     .project-card h3 {
@@ -257,17 +262,25 @@
       color: #18bc9c;
     }
 
-    /* Раздел "Мои боты интегрируются с такими компаниями" (Slider) */
+    /* Слайдер компаний (Галерея) */
     #companies {
       background: #fdfdfd;
       text-align: center;
     }
-    .logo-slider-wrapper {
-      width: 840px; /* Жесткая ширина, чтобы влезало ровно 3 логотипа */
-      max-width: 100%;
-      overflow: hidden;
+    #companies h2 {
+      color: #2c3e50;
+    }
+    .slider-container {
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
       position: relative;
+    }
+    .logo-slider-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
     }
     .logo-slider {
       display: flex;
@@ -276,42 +289,49 @@
     }
     .logo-item {
       flex: 0 0 auto;
-      width: 250px; /* Ширина одного лого */
-      margin: 0 15px; /* Чтобы центровать и не прижималось */
+      width: 250px;
+      margin: 0 15px;
+      box-sizing: border-box;
     }
     .logo-item img {
       width: 100%;
       object-fit: contain;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-    /* Стрелки слайдера */
-    #prevBtn, #nextBtn {
+    .logo-item img:hover {
+      transform: scale(1.05);
+    }
+    /* Стрелки слайдера (всегда видны) */
+    #prevBtn,
+    #nextBtn {
       background: rgba(0, 0, 0, 0.5);
       color: #fff;
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       font-size: 25px;
       cursor: pointer;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 10;
       transition: background 0.3s;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 10;
     }
-    #prevBtn:hover, #nextBtn:hover {
+    #prevBtn:hover,
+    #nextBtn:hover {
       background: rgba(0, 0, 0, 0.7);
     }
     #prevBtn {
-      left: -50px; /* Чуть вынесем за контейнер */
+      left: 0;
     }
     #nextBtn {
-      right: -50px;
+      right: 0;
     }
 
     /* Раздел "Навыки" */
@@ -359,7 +379,27 @@
     .contact-info a:hover {
       text-decoration: underline;
     }
-    /* Удалили форму и заменили на ссылку в GMailButtonContainer */
+    #gmailButtonContainer {
+      text-align: center;
+      margin: 20px 0;
+    }
+    #sendGmailButton {
+      background-color: #db4437;
+      color: #fff;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    #sendGmailButton:hover {
+      background-color: #c1351d;
+      transform: translateY(-2px);
+    }
 
     /* Виджет опроса */
     #surveyWidget {
@@ -438,29 +478,6 @@
       background-color: #0056b3;
     }
 
-    /* Кнопка для отправки сообщения через Gmail */
-    #gmailButtonContainer {
-      text-align: center;
-      margin: 20px 0;
-    }
-    #sendGmailButton {
-      background-color: #db4437;
-      color: white;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    #sendGmailButton:hover {
-      background-color: #c1351d;
-      transform: translateY(-2px);
-    }
-
     /* Футер */
     footer {
       background: #2c3e50;
@@ -472,8 +489,8 @@
       font-size: 16px;
     }
 
-    /* Адаптивные стили */
-    @media(max-width: 768px) {
+    /* Адаптивность (общие медиазапросы) */
+    @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
@@ -507,13 +524,6 @@
       }
       #biography .bio-content {
         max-width: 90%;
-        padding: 0 15px;
-      }
-      .logo-slider-wrapper {
-        width: 100% !important; /* Растягиваем, чтобы не ломалось на узких экранах */
-      }
-      #prevBtn, #nextBtn {
-        display: none; /* Спрятать стрелки на очень маленьких экранах при желании */
       }
     }
   </style>
@@ -677,8 +687,9 @@ import random
 
   <!-- Раздел "Мои боты интегрируются с такими компаниями" (Слайдер) -->
   <section id="companies">
-    <div class="container">
+    <div class="slider-container">
       <h2>Мои боты интегрируются с такими компаниями</h2>
+      
       <div class="logo-slider-wrapper">
         <div class="logo-slider" id="logoSlider">
           <div class="logo-item">
@@ -733,6 +744,7 @@ import random
           </div>
         </div>
       </div>
+      
       <button id="prevBtn">‹</button>
       <button id="nextBtn">›</button>
     </div>
@@ -793,7 +805,6 @@ import random
           <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
           <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
         </div>
-        <!-- Ссылка на GMail вместо формы -->
         <div id="gmailButtonContainer">
           <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" id="sendGmailButton">
             Отправить сообщение в Gmail
@@ -915,8 +926,8 @@ import random
 
       let message = "Здравствуйте!\n\n";
       message += "Вы отправили данные для бота:\n";
-      message += "1. Для чего нужен бот: " + purpose + "\n";
-      message += "2. Задача бота: " + task + "\n";
+      message += "1. Функционал: " + purpose + "\n";
+      message += "2. Задача: " + task + "\n";
       message += "3. Функции: " + features + "\n";
       message += "4. Дополнительно: " + (notes ? notes : "нет") + "\n\n";
       message += "Дата и время отправки: " + formattedDate + "\n";
@@ -929,30 +940,58 @@ import random
       helpButton.style.display = 'block';
     });
 
-    // Слайдер логотипов (показать 3, всего 10)
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    // Адаптивный слайдер для блока "Мои боты интегрируются с такими компаниями"
     const slider = document.getElementById('logoSlider');
     const sliderItems = slider.querySelectorAll('.logo-item');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
     let currentIndex = 0;
-    const visibleItems = 3;
-    const itemWidth = 280; // 250px + 15px*2 (учитываем ширину и отступы)
-    const maxIndex = sliderItems.length - visibleItems; // 10 - 3 = 7
+    let itemWidth = 280; // Базовое: 250px + 15px*2
+    let visibleItems = 3; // Сколько элементов показываем на широком экране
 
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-        slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    function updateSettings() {
+      const screenWidth = window.innerWidth;
+      // Выбираем кол-во видимых логотипов
+      if (screenWidth <= 480) {
+        visibleItems = 1;
+      } else if (screenWidth <= 768) {
+        visibleItems = 2;
+      } else {
+        visibleItems = 3;
       }
-    });
+      // Уточним ширину первого элемента (для точного расчёта translateX)
+      if (sliderItems.length > 0) {
+        const rect = sliderItems[0].getBoundingClientRect();
+        // Предположим, что margin у .logo-item = 15px с каждой стороны
+        itemWidth = rect.width + 2 * 15;
+      }
+      currentIndex = 0;
+      updateSliderPosition();
+    }
+
+    function updateSliderPosition() {
+      const offset = -(currentIndex * itemWidth);
+      slider.style.transform = `translateX(${offset}px)`;
+    }
 
     prevBtn.addEventListener('click', () => {
       if (currentIndex > 0) {
         currentIndex--;
-        slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        updateSliderPosition();
       }
     });
+
+    nextBtn.addEventListener('click', () => {
+      const maxIndex = sliderItems.length - visibleItems;
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateSliderPosition();
+      }
+    });
+
+    window.addEventListener('load', updateSettings);
+    window.addEventListener('resize', updateSettings);
   </script>
 </body>
 </html>
