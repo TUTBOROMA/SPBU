@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="SPBU Tutorials">
+  <meta property="og:description" content="Илья Олегович - Профессиональный разработчик, математик, тестировщик">
+  <meta property="og:image" content="https://tutboroma.github.io/SPBU/cover.jpg">
+  <meta property="og:url" content="https://tutboroma.github.io/SPBU/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RMudrec40251">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Илья Олегович — Профессиональный разработчик</title>
+  
+  <!-- Подключение шрифтов и иконок -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet">
+  
+  <style>
+    /* Сброс стилей */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+      padding-top: 90px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Шапка сайта (header) */
+    header {
+      background: linear-gradient(90deg, #2c3e50, #34495e);
+      color: #fff;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    nav {
+      float: right;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-left: 25px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #18bc9c;
+    }
+    header::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      background: linear-gradient(
+        rgba(44, 62, 80, 0.6),
+        rgba(44, 62, 80, 0.6)
+      ),
+      url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
+      position: relative;
+    }
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+      max-width: 700px;
+    }
+    .hero-content h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+    .hero-content a {
+      background: #18bc9c;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero-content a:hover {
+      background: #159f7a;
+      transform: scale(1.05);
+    }
+
+    /* Общие стили секций */
+    section {
+      padding: 100px 0;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 42px;
+      color: #2c3e50;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #18bc9c;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Раздел "Обо мне" */
+    #about .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
+    #about .image,
+    #about .text {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+    }
+    #about .image {
+      display: flex;
+      justify-content: center;
+    }
+    #about .image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    #about .bio {
+      max-width: 900px;
+      margin: 20px auto 0 auto;
+      text-align: justify;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    #about .bio p {
+      margin-bottom: 25px;
+    }
+
+    /* Раздел "Биография" */
+    #biography {
+      background: #fff;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+    #biography .bio-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: justify;
+      padding: 0 20px;
+    }
+    #biography .bio-content p {
+      margin-bottom: 25px;
+    }
+
+    /* Раздел "Проекты" */
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .project-card .project-content {
+      padding: 20px;
+    }
+    .project-card h3 {
+      margin-bottom: 15px;
+      color: #18bc9c;
+    }
+    .project-card p {
+      margin-bottom: 15px;
+    }
+
+    /* Слайдер компаний (Галерея) */
+    #companies {
+      display: none;
+    }
+
+    /* Раздел "Контакты" */
+    #contact {
+      background: #fff;
+    }
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    .contact-info p {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .contact-info a {
+      color: #18bc9c;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    #gmailButtonContainer {
+      text-align: center;
+      margin: 20px 0;
+    }
+    #sendGmailButton {
+      background-color: #db4437;
+      color: #fff;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    #sendGmailButton:hover {
+      background-color: #c1351d;
+      transform: translateY(-2px);
+    }
+
+    /* Кнопка "Вам помочь?" */
+    #helpButton {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 14px;
+      z-index: 9999;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+    #helpButton:hover {
+      background-color: #0056b3;
+    }
+
+    /* Футер */
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+    }
+    footer p {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header>
+    <div class="container">
+      <div class="logo">Илья Олегович</div>
+      <button class="menu-toggle" id="menuToggle"><i class="fas fa-ellipsis-v"></i></button>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#biography">Биография</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Добро пожаловать!</h1>
+      <p>Я реализую проекты с индивидуальным подходом, эффективно решаю задачи и постоянно совершенствую свои навыки.</p>
+      <a href="#about">Узнать обо мне</a>
+    </div>
+  </section>
+
+  <!-- Раздел "Обо мне" -->
+  <section id="about">
+    <div class="container section-content">
+      <div class="image">
+        <img src="images/photo-1504384308090-c894fdcc538d" alt="Портрет" loading="lazy">
+      </div>
+      <div class="text">
+        <h2>Обо мне</h2>
+        <div class="bio">
+          <p>Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге. В 2022 году стал призером ICPC в Казани, заняв 3-е место. С юных лет увлекаюсь IT и создаю решения для автоматизации процессов. Моя цель – делать технологии доступными и полезными для людей.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Раздел "Биография" -->
+  <section id="biography">
+    <div class="container">
+      <h2>Особенности ботов</h2>
+      <div class="bio-content">
+        <p>Мои боты позволяют значительно повысить эффективность работы. Они могут обрабатывать до 10,000 запросов в секунду, работать круглосуточно и интегрируются с вашими системами. Внедрение таких решений позволяет сократить время обработки запросов на 50% и увеличить конверсию на 30%. Боты решают задачи автоматизации, улучшения обслуживания клиентов и бизнес-процессов.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Раздел "Проекты" -->
+  <section id="projects">
+    <div class="container">
+      <h2>Проекты</h2>
+      <div class="projects-grid">
+        <!-- Проект 1: MEMORY TEST -->
+        <div class="project-card">
+          <img src="images/photo-1518770660439-4636190af475.png" alt="Memory Test" loading="lazy">
+          <div class="project-content">
+            <h3>MEMORY TEST</h3>
+            <p>Интерактивное приложение на Python с использованием Pygame для тренировки памяти. Включает несколько режимов и оригинальный интерфейс.</p>
+          </div>
+        </div>
+        <!-- Проект 2: ТГ боты для 40REF -->
+        <div class="project-card">
+          <img src="images/photo-1511367461989-f85a21fda167.png" alt="Telegram Bots" loading="lazy">
+          <div class="project-content">
+            <h3>ТГ боты для 40REF</h3>
+            <p>Комплексное решение для автоматизации бизнес-процессов в Telegram. Боты объединены в единую систему для оптимизации рабочих процессов.</p>
+          </div>
+        </div>
+        <!-- Проект 3: SyncFiles -->
+        <div class="project-card">
+          <img src="images/photo-1581092795361-8aa453ecb09b.png" alt="SyncFiles" loading="lazy">
+          <div class="project-content">
+            <h3>SyncFiles</h3>
+            <p>Приложение для автоматической синхронизации файлов между локальной папкой и облачным хранилищем Яндекс Диск. Фронтенд на React, бэкенд на Python (Flask).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Раздел "Контакты" -->
+  <section id="contact">
+    <div class="container">
+      <h2>Контакты</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><strong>Телефон:</strong> +7 981 984 6577</p>
+          <p><strong>Email:</strong> <a href="mailto:ilya5950385@yandex.ru">ilya5950385@yandex.ru</a></p>
+          <p><strong>Адрес:</strong> Санкт-Петербург, Россия</p>
+        </div>
+        <div id="gmailButtonContainer">
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" id="sendGmailButton">
+            Отправить сообщение в Gmail
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Илья Олегович. Все права защищены.</p>
+    </div>
+  </footer>
+</body>
+</html>
