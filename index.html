@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+  <!-- Мета-теги для предпросмотра (OG, Twitter) -->
   <meta property="og:title" content="SPBU Tutorials">
+  <meta property="og:type" content="website">
   <meta property="og:description" content="Илья Олегович - Профессиональный разработчик, математик, тестировщик">
   <meta property="og:image" content="https://tutboroma.github.io/SPBU/cover.jpg">
   <meta property="og:url" content="https://tutboroma.github.io/SPBU/">
@@ -26,7 +28,7 @@
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      background: #f4f4f4;
+      background: #eef2f3; /* Сделаем фон чуть светлее и приятнее */
       color: #333;
       scroll-behavior: smooth;
       padding-top: 90px; /* отступ сверху, чтобы фиксированный header не перекрывал секции */
@@ -42,14 +44,15 @@
 
     /* Шапка сайта (header) */
     header {
-      background: linear-gradient(90deg, #2c3e50, #34495e);
+      /* Новая градиентная заливка для более красивого вида */
+      background: linear-gradient(45deg, #283048, #859398);
       color: #fff;
       padding: 20px 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     .container {
       width: 90%;
@@ -97,9 +100,10 @@
     /* Hero Section */
     #hero {
       height: 100vh;
+      /* Обновляем заливку для более интересного эффекта */
       background: linear-gradient(
-        rgba(44, 62, 80, 0.6),
-        rgba(44, 62, 80, 0.6)
+        rgba(40,48,72,0.6),
+        rgba(133,147,152,0.6)
       ),
       url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
       position: relative;
@@ -192,7 +196,7 @@
       margin-bottom: 25px;
     }
 
-    /* Раздел "Биография" */
+    /* Раздел "Биография" (бывш. "Особенности ботов") */
     #biography {
       background: #fff;
       border-top: 1px solid #ddd;
@@ -260,102 +264,6 @@
     }
     .code-placeholder a {
       color: #18bc9c;
-    }
-
-    /* Слайдер компаний (Галерея) */
-    #companies {
-      background: #fdfdfd;
-      text-align: center;
-    }
-    #companies h2 {
-      color: #2c3e50;
-    }
-    .slider-container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .logo-slider-wrapper {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 20px;
-    }
-    .logo-slider {
-      display: flex;
-      transition: transform 0.4s ease;
-      will-change: transform;
-    }
-    .logo-item {
-      flex: 0 0 auto;
-      width: 250px;
-      margin: 0 15px;
-      box-sizing: border-box;
-    }
-    .logo-item img {
-      width: 100%;
-      object-fit: contain;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .logo-item img:hover {
-      transform: scale(1.05);
-    }
-    /* Стрелки слайдера (всегда видны) */
-    #prevBtn,
-    #nextBtn {
-      background: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      border: none;
-      width: 45px;
-      height: 45px;
-      font-size: 25px;
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: background 0.3s;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-    }
-    #prevBtn:hover,
-    #nextBtn:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-    #prevBtn {
-      left: 0;
-    }
-    #nextBtn {
-      right: 0;
-    }
-
-    /* Раздел "Навыки" */
-    #skills {
-      background: #fafafa;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 20px;
-    }
-    .skill-item {
-      background: #18bc9c;
-      color: #fff;
-      padding: 15px;
-      border-radius: 5px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .skill-item:hover {
-      transform: scale(1.1);
     }
 
     /* Раздел "Контакты" */
@@ -499,7 +407,7 @@
       }
       nav.active {
         display: block;
-        background: linear-gradient(90deg, #2c3e50, #34495e);
+        background: linear-gradient(45deg, #283048, #859398);
         position: absolute;
         top: 70px;
         left: 0;
@@ -538,10 +446,10 @@
         <ul>
           <li><a href="#hero">Главная</a></li>
           <li><a href="#about">Обо мне</a></li>
-          <li><a href="#biography">Биография</a></li>
+          <li><a href="#biography">Особенности проектов</a></li>
           <li><a href="#projects">Проекты</a></li>
-          <li><a href="#companies">Галерея</a></li>
-          <li><a href="#skills">Навыки</a></li>
+          <!-- Удаляем ссылку "Галерея" -->
+          <!-- Удаляем ссылку "Навыки" -->
           <li><a href="#contact">Контакты</a></li>
         </ul>
       </nav>
@@ -552,7 +460,8 @@
   <section id="hero">
     <div class="hero-content">
       <h1>Добро пожаловать!</h1>
-      <p>Я реализую проекты любой сложности с учетом современных требований и индивидуальным подходом к каждому заказчику.</p>
+      <!-- Удаляем "любой сложности" -->
+      <p>Я реализую проекты с учётом современных требований и индивидуальным подходом к каждому заказчику.</p>
       <a href="#about">Узнать обо мне</a>
     </div>
   </section>
@@ -566,19 +475,35 @@
       <div class="text">
         <h2>Обо мне</h2>
         <div class="bio">
-          <p>Меня зовут Илья Олегович. Мне 20 лет. Я родился и вырос в Санкт-Петербурге, где с юных лет увлёкся IT. Мои проекты отражают стремление к инновациям. Я победитель Закла ВсОШ по информатике.</p>
-          <p>Я постоянно совершенствую свои навыки и создаю уникальные решения для каждого заказчика. Моя цель – делать мир удобнее за счёт современных технологий.</p>
+          <p>
+            Меня зовут Илья Олегович, мне 20 лет. Я родился и вырос в Санкт-Петербурге, увлёкся IT с юных лет. 
+            Мои проекты направлены на инновации и удобство. 
+            Я — победитель заключительного этапа ВсОШ по информатике, призёр ICPC 2023 в Казани (3-е место) 
+            и призёр заключительного этапа ВсОШ по математике. 
+            Также я отлично знаю физику и могу разрабатывать сложные дизайн-проекты. 
+            Я постоянно совершенствую навыки, чтобы создавать уникальные решения.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Раздел "Биография" -->
+  <!-- Раздел "Особенности проектов" -->
   <section id="biography">
     <div class="container">
-      <h2>Особенности ботов</h2>
+      <h2>Особенности проектов</h2>
       <div class="bio-content">
-        <p>Мои Telegram-боты помогают компаниям значительно повысить эффективность их работы. Разработанные решения сокращают время обработки запросов на 50%, обеспечивают круглосуточную поддержку и могут обработать до 10,000 запросов в секунду. Боты интегрируются с CRM, позволяют автоматизировать маркетинговые процессы и встраиваются в существующие IT-системы. Внедрение ботов в бизнес-процессы увеличивает конверсию на 30%, обеспечивая оперативность и удобство взаимодействия с клиентами.</p>
+        <p>
+          Наши проекты отличаются высокой эффективностью и надежностью.
+          Мы создаем решения, позволяющие сократить затраты до 50% и повысить производительность на 30%. 
+          Каждый проект разрабатывается с учетом индивидуальных потребностей заказчика, 
+          а сроки выполнения составляют в среднем 3-4 недели. Наши разработки гарантируют стабильную работу систем,
+          обрабатывая до 10 000 запросов в сутки, что обеспечивает надежность даже при высокой нагрузке.
+          Мы тщательно планируем каждый этап, проводим не менее 5 циклов тестирования и используем передовые технологии.
+          Уже после первых 2 месяцев эксплуатации клиенты отмечают значительное улучшение работы.
+          Наши проекты помогают бизнесу расти, открывая новые возможности для достижения успеха.
+          Мы уверены, что наш профессиональный подход и использование современных решений обеспечат стабильный рост вашего бизнеса без сомнения.
+        </p>
       </div>
     </div>
   </section>
@@ -604,12 +529,12 @@ import random
             <p>Полный код – на <a href="https://github.com/TUTBOROMA" target="_blank" style="color: #18bc9c;">GitHub</a>.</p>
           </div>
         </div>
-        <!-- Проект 2: ТГ боты для 40REF -->
+        <!-- Проект 2: Чат-боты для 40REF -->
         <div class="project-card">
-          <img src="images/photo-1511367461989-f85a21fda167.png" alt="Telegram Bots" loading="lazy">
+          <img src="images/photo-1511367461989-f85a21fda167.png" alt="Чат-боты" loading="lazy">
           <div class="project-content">
-            <h3>ТГ боты для 40REF</h3>
-            <p>Комплексное решение для автоматизации бизнес-процессов в Telegram. Боты объединены в единую систему для оптимизации рабочих процессов.</p>
+            <h3>Чат-боты для 40REF</h3>
+            <p>Комплексное решение для автоматизации бизнес-процессов. Чат-боты объединены в единую систему для оптимизации рабочих процессов.</p>
             <div class="code-placeholder">
               <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
             </div>
@@ -637,163 +562,14 @@ import random
             </div>
           </div>
         </div>
-        <!-- Проект 5: Корпоративная система управления данными -->
-        <div class="project-card">
-          <img src="images/photo-1532614338840-5c77b6d6c7a5.png" alt="Система управления данными" loading="lazy">
-          <div class="project-content">
-            <h3>Корпоративная система управления данными</h3>
-            <p>Платформа для обработки, анализа и визуализации больших данных с модулем предиктивной аналитики и интеграцией с различными источниками информации.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 6: IoT-решения для умного дома -->
-        <div class="project-card">
-          <img src="images/photo-1560518883-ce09059eeffa.jpeg" alt="Умный дом" loading="lazy">
-          <div class="project-content">
-            <h3>IoT-решения для умного дома</h3>
-            <p>Система для дистанционного управления бытовой техникой и устройствами умного дома с мониторингом энергопотребления и повышенной безопасностью.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 7: Интеграционная платформа B2B -->
-        <div class="project-card">
-          <img src="images/photo-1498050108023-c5249f4df085.png" alt="Интеграционная платформа" loading="lazy">
-          <div class="project-content">
-            <h3>Интеграционная платформа B2B</h3>
-            <p>Система для объединения корпоративных информационных ресурсов с автоматизированным обменом данными, высокой безопасностью и масштабируемостью процессов.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
-            </div>
-          </div>
-        </div>
-        <!-- Проект 8: Система умного города -->
-        <div class="project-card">
-          <img src="images/photo-1504384308090-c894fdcc538d" alt="Умный город" loading="lazy">
-          <div class="project-content">
-            <h3>Система умного города</h3>
-            <p>Комплексное решение для автоматизации городских сервисов, оптимизации транспортных потоков и повышения комфорта жителей при помощи облачных технологий.</p>
-            <div class="code-placeholder">
-              <a href="https://github.com/TUTBOROMA" target="_blank">Код проекта будет добавлен сюда: Посмотреть на GitHub</a>
-            </div>
-          </div>
-        </div>
+        <!-- Удалены проекты 5,6,7,8 по запросу -->
       </div>
     </div>
   </section>
 
-  <!-- Раздел "Мои боты интегрируются с такими компаниями" (Слайдер) -->
-  <section id="companies">
-    <div class="slider-container">
-      <h2>Мои боты интегрируются с такими компаниями</h2>
-      
-      <div class="logo-slider-wrapper">
-        <div class="logo-slider" id="logoSlider">
-          <div class="logo-item">
-            <a href="https://www.sberbank.ru" target="_blank">
-              <img src="images/sber-logo.jpg" alt="Сбер" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://alfabank.ru" target="_blank">
-              <img src="images/alfa-logo.png" alt="Альфа" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://www.rossiya-bank.ru" target="_blank">
-              <img src="images/rossiya-logo.png" alt="Россия" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://www.tinkoff.ru" target="_blank">
-              <img src="images/tinkoff-logo.png" alt="Тинькофф" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://www.psbank.ru" target="_blank">
-              <img src="images/psb-logo.png" alt="ПСБ" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://www.vtb.ru" target="_blank">
-              <img src="images/vtb-logo.png" alt="ВТБ" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://www.rosbank.ru" target="_blank">
-              <img src="images/rosbank-logo.png" alt="Росбанк" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://www.rosstat.gov.ru" target="_blank">
-              <img src="images/rosstat.jpg" alt="Росстат" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://moscow.mts.ru" target="_blank">
-              <img src="images/mts-logo.png" alt="МТС" loading="lazy">
-            </a>
-          </div>
-          <div class="logo-item">
-            <a href="https://raiffeisen.ru" target="_blank">
-              <img src="images/raiffeisen-logo.png" alt="Райффайзен" loading="lazy">
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <button id="prevBtn">‹</button>
-      <button id="nextBtn">›</button>
-    </div>
-  </section>
+  <!-- Удалён раздел "Мои боты интегрируются..." и слайдер -->
 
-  <!-- Раздел "Навыки" -->
-  <section id="skills">
-    <div class="container">
-      <h2>Навыки и технологии</h2>
-      <div class="skills-grid">
-        <div class="skill-item">HTML5</div>
-        <div class="skill-item">CSS3 / SASS</div>
-        <div class="skill-item">JavaScript (ES6+)</div>
-        <div class="skill-item">React / Redux</div>
-        <div class="skill-item">Angular</div>
-        <div class="skill-item">Vue.js</div>
-        <div class="skill-item">Node.js</div>
-        <div class="skill-item">Express</div>
-        <div class="skill-item">TypeScript</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">Django</div>
-        <div class="skill-item">Flask</div>
-        <div class="skill-item">SQL / PostgreSQL</div>
-        <div class="skill-item">NoSQL / MongoDB</div>
-        <div class="skill-item">Java</div>
-        <div class="skill-item">C/C++</div>
-        <div class="skill-item">C# / ASP.NET</div>
-        <div class="skill-item">Git &amp; GitHub</div>
-        <div class="skill-item">Docker</div>
-        <div class="skill-item">Kubernetes</div>
-        <div class="skill-item">Linux (Ubuntu, CentOS)</div>
-        <div class="skill-item">RESTful API</div>
-        <div class="skill-item">GraphQL</div>
-        <div class="skill-item">Agile / Scrum</div>
-        <div class="skill-item">CI/CD</div>
-        <div class="skill-item">Machine Learning</div>
-        <div class="skill-item">Data Analysis</div>
-        <div class="skill-item">Cloud Services</div>
-        <div class="skill-item">Firebase</div>
-        <div class="skill-item">Physics Simulations</div>
-        <div class="skill-item">Algorithm Design</div>
-        <div class="skill-item">Data Visualization</div>
-        <div class="skill-item">Big Data</div>
-        <div class="skill-item">Cybersecurity</div>
-        <div class="skill-item">DevOps</div>
-        <div class="skill-item">Ruby on Rails</div>
-      </div>
-    </div>
-  </section>
+  <!-- Удалён раздел "Навыки и технологии" -->
 
   <!-- Раздел "Контакты" -->
   <section id="contact">
@@ -939,59 +715,6 @@ import random
       surveyWidget.style.display = 'none';
       helpButton.style.display = 'block';
     });
-
-    // Адаптивный слайдер для блока "Мои боты интегрируются с такими компаниями"
-    const slider = document.getElementById('logoSlider');
-    const sliderItems = slider.querySelectorAll('.logo-item');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    let currentIndex = 0;
-    let itemWidth = 280; // Базовое: 250px + 15px*2
-    let visibleItems = 3; // Сколько элементов показываем на широком экране
-
-    function updateSettings() {
-      const screenWidth = window.innerWidth;
-      // Выбираем кол-во видимых логотипов
-      if (screenWidth <= 480) {
-        visibleItems = 1;
-      } else if (screenWidth <= 768) {
-        visibleItems = 2;
-      } else {
-        visibleItems = 3;
-      }
-      // Уточним ширину первого элемента (для точного расчёта translateX)
-      if (sliderItems.length > 0) {
-        const rect = sliderItems[0].getBoundingClientRect();
-        // Предположим, что margin у .logo-item = 15px с каждой стороны
-        itemWidth = rect.width + 2 * 15;
-      }
-      currentIndex = 0;
-      updateSliderPosition();
-    }
-
-    function updateSliderPosition() {
-      const offset = -(currentIndex * itemWidth);
-      slider.style.transform = `translateX(${offset}px)`;
-    }
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      const maxIndex = sliderItems.length - visibleItems;
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-        updateSliderPosition();
-      }
-    });
-
-    window.addEventListener('load', updateSettings);
-    window.addEventListener('resize', updateSettings);
   </script>
 </body>
 </html>
