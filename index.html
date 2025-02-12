@@ -18,6 +18,17 @@
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet">
   
   <style>
+    /* CSS-переменные для улучшения дизайна */
+    :root {
+      --primary-color: #18bc9c;
+      --secondary-color: #283048;
+      --accent-color: #859398;
+      --dark-color: #2c3e50;
+      --light-bg: #eef2f3;
+      --text-color: #333;
+      --header-shadow: rgba(0, 0, 0, 0.3);
+    }
+
     /* Сброс стилей */
     * {
       margin: 0;
@@ -28,10 +39,10 @@
     body {
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      background: #eef2f3; /* Сделаем фон чуть светлее и приятнее */
-      color: #333;
+      background: var(--light-bg);
+      color: var(--text-color);
       scroll-behavior: smooth;
-      padding-top: 90px; /* отступ сверху, чтобы фиксированный header не перекрывал секции */
+      padding-top: 90px; /* Отступ сверху для фиксированного header */
     }
     
     a {
@@ -44,15 +55,15 @@
 
     /* Шапка сайта (header) */
     header {
-      /* Новая градиентная заливка для более красивого вида */
-      background: linear-gradient(45deg, #283048, #859398);
+      background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
       color: #fff;
       padding: 20px 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 6px var(--header-shadow);
+      transition: background 0.3s ease;
     }
     .container {
       width: 90%;
@@ -86,10 +97,11 @@
       color: #fff;
       text-transform: uppercase;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
     nav ul li a:hover {
-      color: #18bc9c;
+      color: var(--primary-color);
+      transform: scale(1.1);
     }
     header::after {
       content: "";
@@ -100,42 +112,41 @@
     /* Hero Section */
     #hero {
       height: 100vh;
-      /* Обновляем заливку для более интересного эффекта */
       background: linear-gradient(
-        rgba(40,48,72,0.6),
-        rgba(133,147,152,0.6)
+        rgba(40, 48, 72, 0.6),
+        rgba(133, 147, 152, 0.6)
       ),
       url('images/776d3f19d0d91c4c324071ff529acbfb.jpg') no-repeat center center/cover;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
       color: #fff;
       padding: 0 20px;
       max-width: 700px;
+      animation: fadeInUp 1s ease-out;
     }
     .hero-content h1 {
       font-size: 56px;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
     .hero-content p {
       font-size: 24px;
       margin-bottom: 30px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     }
     .hero-content a {
-      background: #18bc9c;
+      background: var(--primary-color);
       color: #fff;
       padding: 15px 30px;
       font-size: 18px;
       border-radius: 5px;
       transition: background 0.3s ease, transform 0.3s ease;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     }
     .hero-content a:hover {
       background: #159f7a;
@@ -150,53 +161,20 @@
       text-align: center;
       margin-bottom: 60px;
       font-size: 42px;
-      color: #2c3e50;
+      color: var(--dark-color);
       position: relative;
     }
     section h2::after {
       content: "";
       width: 80px;
       height: 4px;
-      background: #18bc9c;
+      background: var(--primary-color);
       display: block;
       margin: 10px auto 0;
       border-radius: 2px;
     }
 
-    /* Раздел "Обо мне" */
-    #about .section-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-around;
-    }
-    #about .image,
-    #about .text {
-      flex: 1;
-      padding: 20px;
-      min-width: 300px;
-    }
-    #about .image {
-      display: flex;
-      justify-content: center;
-    }
-    #about .image img {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    #about .bio {
-      max-width: 900px;
-      margin: 20px auto 0 auto;
-      text-align: justify;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    #about .bio p {
-      margin-bottom: 25px;
-    }
-
-    /* Раздел "Биография" (бывш. "Особенности ботов") */
+    /* Раздел "Биография" (Особенности проектов) */
     #biography {
       background: #fff;
       border-top: 1px solid #ddd;
@@ -224,12 +202,12 @@
       background: #fff;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     .project-card img {
       width: 100%;
@@ -241,7 +219,7 @@
     }
     .project-card h3 {
       margin-bottom: 15px;
-      color: #18bc9c;
+      color: var(--primary-color);
     }
     .project-card p {
       margin-bottom: 15px;
@@ -263,7 +241,7 @@
       font-style: italic;
     }
     .code-placeholder a {
-      color: #18bc9c;
+      color: var(--primary-color);
     }
 
     /* Раздел "Контакты" */
@@ -282,7 +260,7 @@
       font-size: 18px;
     }
     .contact-info a {
-      color: #18bc9c;
+      color: var(--primary-color);
     }
     .contact-info a:hover {
       text-decoration: underline;
@@ -301,7 +279,7 @@
       font-size: 16px;
       text-align: center;
       text-decoration: none;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
       transition: background 0.3s ease, transform 0.3s ease;
     }
     #sendGmailButton:hover {
@@ -319,7 +297,7 @@
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       padding: 15px 20px 20px;
       z-index: 2000;
       display: none;
@@ -328,7 +306,7 @@
     #surveyWidget h3 {
       margin-bottom: 10px;
       text-align: center;
-      color: #18bc9c;
+      color: var(--primary-color);
       font-size: 18px;
     }
     #surveyWidget label {
@@ -348,7 +326,7 @@
       border-radius: 4px;
     }
     #surveyWidget button {
-      background: #18bc9c;
+      background: var(--primary-color);
       color: #fff;
       border: none;
       cursor: pointer;
@@ -379,16 +357,17 @@
       z-index: 9999;
       border-radius: 5px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     #helpButton:hover {
       background-color: #0056b3;
+      transform: translateY(-2px);
     }
 
     /* Футер */
     footer {
-      background: #2c3e50;
+      background: var(--dark-color);
       color: #fff;
       text-align: center;
       padding: 40px 0;
@@ -407,7 +386,7 @@
       }
       nav.active {
         display: block;
-        background: linear-gradient(45deg, #283048, #859398);
+        background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
         position: absolute;
         top: 70px;
         left: 0;
@@ -425,13 +404,17 @@
       .hero-content p {
         font-size: 18px;
       }
-      #about .section-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    }
+
+    /* Анимация появления */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      #biography .bio-content {
-        max-width: 90%;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -445,11 +428,9 @@
       <nav id="navMenu">
         <ul>
           <li><a href="#hero">Главная</a></li>
-          <li><a href="#about">Обо мне</a></li>
+          <!-- Удалён пункт "Обо мне" -->
           <li><a href="#biography">Особенности проектов</a></li>
           <li><a href="#projects">Проекты</a></li>
-          <!-- Удаляем ссылку "Галерея" -->
-          <!-- Удаляем ссылку "Навыки" -->
           <li><a href="#contact">Контакты</a></li>
         </ul>
       </nav>
@@ -460,35 +441,14 @@
   <section id="hero">
     <div class="hero-content">
       <h1>Добро пожаловать!</h1>
-      <!-- Удаляем "любой сложности" -->
       <p>Я реализую проекты с учётом современных требований и индивидуальным подходом к каждому заказчику.</p>
-      <a href="#about">Узнать обо мне</a>
+      <a href="#biography">Узнать подробнее</a>
     </div>
   </section>
 
-  <!-- Раздел "Обо мне" -->
-  <section id="about">
-    <div class="container section-content">
-      <div class="image">
-        <img src="images/photo-1504384308090-c894fdcc538d" alt="Портрет" loading="lazy">
-      </div>
-      <div class="text">
-        <h2>Обо мне</h2>
-        <div class="bio">
-          <p>
-            Меня зовут Илья Олегович, мне 20 лет. Я родился и вырос в Санкт-Петербурге, увлёкся IT с юных лет. 
-            Мои проекты направлены на инновации и удобство. 
-            Я — победитель заключительного этапа ВсОШ по информатике, призёр ICPC 2023 в Казани (3-е место) 
-            и призёр заключительного этапа ВсОШ по математике. 
-            Также я отлично знаю физику и могу разрабатывать сложные дизайн-проекты. 
-            Я постоянно совершенствую навыки, чтобы создавать уникальные решения.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Раздел "Обо мне" полностью удалён -->
 
-  <!-- Раздел "Особенности проектов" -->
+  <!-- Раздел "Особенности проектов" (Биография) -->
   <section id="biography">
     <div class="container">
       <h2>Особенности проектов</h2>
@@ -524,7 +484,7 @@ import random
 # Инициализация экрана и логика теста
 </pre>
             </div>
-            <p>Полный код – на <a href="https://github.com/TUTBOROMA" target="_blank" style="color: #18bc9c;">GitHub</a>.</p>
+            <p>Полный код – на <a href="https://github.com/TUTBOROMA" target="_blank">GitHub</a>.</p>
           </div>
         </div>
         <!-- Проект 2: Чат-боты для 40REF -->
@@ -560,14 +520,9 @@ import random
             </div>
           </div>
         </div>
-        <!-- Удалены проекты 5,6,7,8 по запросу -->
       </div>
     </div>
   </section>
-
-  <!-- Удалён раздел "Мои боты интегрируются..." и слайдер -->
-
-  <!-- Удалён раздел "Навыки и технологии" -->
 
   <!-- Раздел "Контакты" -->
   <section id="contact">
